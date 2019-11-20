@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "378421376741",
+    "firebase_url": "https://socialapp-fianal.firebaseio.com",
+    "project_id": "socialapp-fianal",
+    "storage_bucket": "socialapp-fianal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378421376741:android:5cac53acf3584371a1c60c",
+        "android_client_info": {
+          "package_name": "com.alexen.social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378421376741-6pvdkl46gob1bes55ofmfbut2foe39g6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexen.social",
+            "certificate_hash": "b190be563b7b38167a50dc40909fc8c0e56f2452"
+          }
+        },
+        {
+          "client_id": "378421376741-lk593crap8bbo0ekkiabcfmhemdijnif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Cv6dotJkeCAUA1sE6dtBLSbV_BU9XhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378421376741-lk593crap8bbo0ekkiabcfmhemdijnif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_login">
+
+    <fragment
+        android:id="@+id/navigation_account_descripcion"
+        android:name="com.alexen.social.AccountDescriptionsFragment"
+        android:label="@string/title_account" />
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.alexen.social.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_accountT"
+        android:name="com.alexen.social.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/navigation_account_publications"
+        android:name="com.alexen.social.AccountPublicationsFragment"
+        android:label="@string/title_account" />
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.alexen.social.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.alexen.social.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_Register"
+            app:destination="@id/navigation_Register" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_Register"
+        android:name="com.alexen.social.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_Register_to_userFragment"
+            app:destination="@id/navigation_User" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_User"
+        android:name="com.alexen.social.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/navigation_account_chats"
+        android:name="com.alexen.social.AccountChatsFragment"
+        android:label="@string/title_account" />
+</navigation>
