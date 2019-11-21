@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui.account;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class AccountDescriptionsFragment extends Fragment {
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_account_descriptions, container, false);
+import com.alexen.social.R;
+
+public class AccountChatsFragment extends Fragment {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_account_chats, container, false);
     }
 
     @Override

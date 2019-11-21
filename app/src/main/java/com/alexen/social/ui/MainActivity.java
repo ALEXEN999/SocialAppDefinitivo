@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexen.social.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;

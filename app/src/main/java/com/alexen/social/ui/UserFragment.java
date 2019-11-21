@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.alexen.social.R;
 
 import static android.app.Activity.RESULT_OK;
 

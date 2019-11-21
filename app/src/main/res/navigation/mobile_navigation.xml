@@ -7,32 +7,32 @@
 
     <fragment
         android:id="@+id/navigation_account_descripcion"
-        android:name="com.alexen.social.AccountDescriptionsFragment"
+        android:name="com.alexen.social.ui.account.AccountDescriptionsFragment"
         android:label="@string/title_account" />
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.alexen.social.HomeFragment"
+        android:name="com.alexen.social.ui.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_accountT"
-        android:name="com.alexen.social.AccountFragment"
+        android:name="com.alexen.social.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/navigation_account_publications"
-        android:name="com.alexen.social.AccountPublicationsFragment"
+        android:name="com.alexen.social.ui.AccountPublicationsFragment"
         android:label="@string/title_account" />
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.alexen.social.NotificationsFragment"
+        android:name="com.alexen.social.ui.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_login"
-        android:name="com.alexen.social.LoginFragment"
+        android:name="com.alexen.social.ui.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_Register"
-        android:name="com.alexen.social.RegisterFragment"
+        android:name="com.alexen.social.ui.register.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register">
         <action
@@ -56,11 +56,11 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_User"
-        android:name="com.alexen.social.UserFragment"
+        android:name="com.alexen.social.ui.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/navigation_account_chats"
-        android:name="com.alexen.social.AccountChatsFragment"
+        android:name="com.alexen.social.ui.account.AccountChatsFragment"
         android:label="@string/title_account" />
 </navigation>

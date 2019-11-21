@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
