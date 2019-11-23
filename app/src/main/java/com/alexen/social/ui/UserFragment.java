@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.alexen.social.R;
+import com.alexen.social.ui.register.RegisterFragment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -27,9 +28,9 @@ import static android.app.Activity.RESULT_OK;
 public class UserFragment extends Fragment {
     private static Button button;
     ImageView imagen;
-
-
-
+    MainActivity mainActivity = new MainActivity();
+    RegisterFragment registerFragment = new RegisterFragment();
+    String url;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,6 +50,8 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(View v) {
             cargarFoto();
+
+            mainActivity.guardarDatosUser(registerFragment.getUsername(),registerFragment.getEmail(),registerFragment.getEmail(),url);
             }
         });
 
@@ -65,7 +68,11 @@ public class UserFragment extends Fragment {
         if (resultCode==RESULT_OK){
             Uri path = data.getData();
             imagen.setImageURI(path);
+            url = String.valueOf(path);
 
         }
     }
+
+
+
 }

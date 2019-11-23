@@ -34,12 +34,11 @@ public class RegisterFragment extends Fragment {
     EditText emailEdit;
     EditText passwordEdit;
     EditText usernameEdit;
-    MainActivity mainActivity = new MainActivity();
 
     private String email;
     private String username;
     private String password;
-
+    MainActivity mainActivity = new MainActivity();
     public RegisterFragment() {
     }
 
@@ -68,16 +67,14 @@ public class RegisterFragment extends Fragment {
                 password = passwordEdit.getText().toString();
                 username = usernameEdit.getText().toString();
                 setUsername(username);
+                setEmail(email);
+                setPassword(password);
                 createAccount();
-                try {
-                    guardarUser();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
             }
         });
+
+
     }
 
     private void updateUI(FirebaseUser currentUser) {
@@ -85,20 +82,7 @@ public class RegisterFragment extends Fragment {
 
     }
 
-    public void guardarUser () throws IOException {
 
-
-
-        File file = new File(getContext().getFilesDir(),"datosAccount.txt");
-
-
-
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        fileOutputStream.write(username.getBytes());
-        Log.d("TAG1", "Fiechero salvado:"+getContext().getFilesDir()+"/datosAcount.txt");
-        fileOutputStream.close();
-
-    }
     public  void createAccount(){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
@@ -120,6 +104,21 @@ public class RegisterFragment extends Fragment {
                 });
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public String getUsername() {
         return username;

@@ -1,5 +1,9 @@
 package com.alexen.social.ui.account;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,12 +29,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import static android.app.Activity.RESULT_OK;
 
 public class AccountFragment extends Fragment {
     UserFragment userFragment = new UserFragment();
     ImageView imageView;
     TextView username;
-
     RegisterFragment registerFragment = new RegisterFragment();
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_account, container, false);
@@ -41,9 +48,8 @@ public class AccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        imageView = view.findViewById(R.id.imagenAccount);
+        imageView = view.findViewById(R.id.imageViewAccountPhoto);
         username = view.findViewById(R.id.textViewUsername);
-
         try {
             leerDatosAccount();
         } catch (IOException e) {
@@ -89,9 +95,30 @@ public class AccountFragment extends Fragment {
         username.setText(stringBuilder);
         inputStreamReader.close();
         bufferedReader.close();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+            Uri path = data.getData();
+            imageView.setImageURI(path);
 
 
     }
+//    public void leerFotoPerfil() throws MalformedURLException {
+//        Bitmap bitmap = null;
+//
+//        try{
+//            Log.d("debug",getContext().getFilesDir().getPath()+ "/"+imagen);
+//            FileInputStream fileInputStream =
+//                    new FileInputStream(getContext().getFilesDir().getPath()+ "/"+imagen);
+//            bitmap = BitmapFactory.decodeStream(fileInputStream);
+//        }catch (IOException io){
+//            io.printStackTrace();
+//        }
+//
+//        imageView.setImageBitmap(bitmap);
+//    }
     class DemoPagerAdapter extends FragmentPagerAdapter {
 
         public DemoPagerAdapter(FragmentManager fm, int behavior) {

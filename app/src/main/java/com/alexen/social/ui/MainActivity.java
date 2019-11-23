@@ -1,15 +1,14 @@
 package com.alexen.social.ui;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.alexen.social.Manage.DataBase.SocialAppDataBase;
+import com.alexen.social.Manage.Entity.DatosUser;
 import com.alexen.social.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,25 +21,17 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.sql.SQLData;
-
 public class MainActivity extends AppCompatActivity {
+    EditText emailEdit,passwordEdit,usernameEdit;
 
-    ImageView photoAccount;
-    TextView followers, follows;
-    EditText username;
     private final int PICKER =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        usernameEdit =findViewById(R.id.editTextUsername);
+        emailEdit = findViewById(R.id.editTextEmail);
+        passwordEdit = findViewById(R.id.editTextPassword);
         final BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -73,37 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
 
-//    public void guardarDatos(View view) throws IOException {
-//
-//        photoAccount=view.findViewById(R.id.imagenAccount);
-//        username=view.findViewById(R.id.editTextUsername);
-//        followers=view.findViewById(R.id.textViewCountFollowers);
-//        follows=view.findViewById(R.id.textViewCountFollows);
-//
-//        String txtUsername = username.getText().toString();
-////        int numberFollowers = Integer.parseInt(followers.toString());
-////        int numberFollows = Integer.parseInt(follows.toString());
-////        URL url = new URL(photoAccount.toString());
-//
-////        String urlPhoto = url.toString();
-//
-//
-//
-//        BaseDeDatos baseDeDatos = new BaseDeDatos(this,"DEMODB",null,1);
-//
-//        SQLiteDatabase db = baseDeDatos.getWritableDatabase();
-//        if (db!=null){
-//            ContentValues registroNuevo = new ContentValues();
-//
-//            registroNuevo.put("username",txtUsername);
-////            registroNuevo.put("followers",numberFollowers);
-////            registroNuevo.put("followws", numberFollows);
-////            registroNuevo.put("accountPhoto",urlPhoto);
-//
-//            db.insert("DatosCuenta",null,registroNuevo);
-//            Toast.makeText(this, "Datos almacenados", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    }
+    public void guardarDatosUser(String username, String email, String password, String urlFoto){
+
+//        username=usernameEdit.getText().toString();
+//        email=emailEdit.getText().toString();
+//        password=passwordEdit.getText().toString();
+
+        DatosUser datosUser = new DatosUser(username,email,password,urlFoto);
+leerDatosUser();
+    }
+    public void leerDatosUser(){
+        SocialAppDataBase.getInstance(getApplicationContext()).socialAppDao();
+        System.out.println(SocialAppDataBase.getInstance(getApplicationContext()).socialAppDao());
+    }
 }
