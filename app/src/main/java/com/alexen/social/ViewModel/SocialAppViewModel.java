@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.alexen.social.Manage.Dao.SocialAppDao;
-import com.alexen.social.Manage.DataBase.SocialAppDataBase;
-import com.alexen.social.Manage.Entity.DatosUser;
-import com.alexen.social.Manage.View.UserDetalle;
+import com.alexen.social.manage.Dao.SocialAppDao;
+import com.alexen.social.manage.DataBase.SocialAppDataBase;
+import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.View.UserDetalle;
 
 public class SocialAppViewModel extends AndroidViewModel{
     SocialAppDao socialAppDao;

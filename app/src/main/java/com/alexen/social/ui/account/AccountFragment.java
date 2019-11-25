@@ -16,8 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.model.SocialAppViewModel;
 import com.alexen.social.ui.AccountPublicationsFragment;
 import com.alexen.social.R;
 import com.alexen.social.ui.register.RegisterFragment;
@@ -35,26 +39,37 @@ import java.net.URL;
 import static android.app.Activity.RESULT_OK;
 
 public class AccountFragment extends Fragment {
-    UserFragment userFragment = new UserFragment();
+    SocialAppViewModel socialAppViewModel;
+
     ImageView imageView;
     TextView username;
-    RegisterFragment registerFragment = new RegisterFragment();
+
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_account, container, false);
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
         imageView = view.findViewById(R.id.imageViewAccountPhoto);
         username = view.findViewById(R.id.textViewUsername);
-        try {
-            leerDatosAccount();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        socialAppViewModel.datosUserMutableLiveData.observe(getViewLifecycleOwner(), new Observer<DatosUser>() {
+            @Override
+            public void onChanged(DatosUser datosUser) {
+                if(datosUser == null){
+                    // navigar loing
+                } else {
+                    mostrarPerfil(datosUser);
+                }
+            }
+        });
+
+
+
         ViewPager viewPager = view.findViewById(R.id.viewPager);
 
         // F por viewPager
@@ -73,28 +88,10 @@ public class AccountFragment extends Fragment {
 
     }
 
-    public void leerDatosAccount() throws IOException {
-        File file = new File(getContext().getFilesDir(),"datosAccount.txt");
+    private void mostrarPerfil(DatosUser datosUser) {
+        username.setText(datosUser.username);
+//        imageView.setImageURI(Uri.parse(datosUser.urlFoto));
 
-        FileInputStream fileInputStream = new FileInputStream(file);
-        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        String linea= "";
-        StringBuilder stringBuilder= new StringBuilder();
-        linea = bufferedReader.readLine();
-        Boolean eof = false;
-        while (!eof){
-            if (linea == null){
-                eof = true;
-            }else {
-                stringBuilder.append(linea).append("\n");
-                linea = bufferedReader.readLine();
-            }
-        }
-
-        username.setText(stringBuilder);
-        inputStreamReader.close();
-        bufferedReader.close();
     }
 
     @Override
@@ -102,23 +99,8 @@ public class AccountFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
             Uri path = data.getData();
             imageView.setImageURI(path);
-
-
     }
-//    public void leerFotoPerfil() throws MalformedURLException {
-//        Bitmap bitmap = null;
-//
-//        try{
-//            Log.d("debug",getContext().getFilesDir().getPath()+ "/"+imagen);
-//            FileInputStream fileInputStream =
-//                    new FileInputStream(getContext().getFilesDir().getPath()+ "/"+imagen);
-//            bitmap = BitmapFactory.decodeStream(fileInputStream);
-//        }catch (IOException io){
-//            io.printStackTrace();
-//        }
-//
-//        imageView.setImageBitmap(bitmap);
-//    }
+
     class DemoPagerAdapter extends FragmentPagerAdapter {
 
         public DemoPagerAdapter(FragmentManager fm, int behavior) {

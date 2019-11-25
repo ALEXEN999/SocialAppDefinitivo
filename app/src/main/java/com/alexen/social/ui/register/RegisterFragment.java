@@ -11,8 +11,12 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
+import com.alexen.social.model.SocialAppViewModel;
 import com.alexen.social.ui.MainActivity;
 import com.alexen.social.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,8 +29,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.security.acl.Owner;
 
 import static android.content.ContentValues.TAG;
+import static com.alexen.social.model.SocialAppViewModel.*;
 
 public class RegisterFragment extends Fragment {
     private FirebaseAuth mAuth;
@@ -35,6 +41,7 @@ public class RegisterFragment extends Fragment {
     EditText passwordEdit;
     EditText usernameEdit;
 
+    SocialAppViewModel socialAppViewModel;
     private String email;
     private String username;
     private String password;
@@ -52,6 +59,7 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
         // Initialize Firebase Auth
         usernameEdit =view.findViewById(R.id.editTextUsername);
@@ -66,9 +74,25 @@ public class RegisterFragment extends Fragment {
                 email = emailEdit.getText().toString();
                 password = passwordEdit.getText().toString();
                 username = usernameEdit.getText().toString();
+
+                socialAppViewModel.registrarUsuario(username,email,password);
                 setUsername(username);
                 setEmail(email);
                 setPassword(password);
+                socialAppViewModel.registrarUsuario(username,email,password);
+                socialAppViewModel.estadoDelRegistroMutableLiveData.observe(getViewLifecycleOwner(), new Observer<EstadoDelRegistro>() {
+                    @Override
+                    public void onChanged(EstadoDelRegistro estadoDelRegistro) {
+                        switch (estadoDelRegistro){
+                            case REGISTRO_COMPLETADO:
+                                // navegar al home
+                                break;
+                            case NOMBRE_NO_DISPONIBLE:
+                                // toast
+                                break;
+                        }
+                    }
+                });
                 createAccount();
 
             }

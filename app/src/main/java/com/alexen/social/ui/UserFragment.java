@@ -31,10 +31,9 @@ public class UserFragment extends Fragment {
     MainActivity mainActivity = new MainActivity();
     RegisterFragment registerFragment = new RegisterFragment();
     String url;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_user, container, false);
     }
 
@@ -51,7 +50,6 @@ public class UserFragment extends Fragment {
             public void onClick(View v) {
             cargarFoto();
 
-            mainActivity.guardarDatosUser(registerFragment.getUsername(),registerFragment.getEmail(),registerFragment.getEmail(),url);
             }
         });
 

@@ -1,14 +1,11 @@
 package com.alexen.social.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.alexen.social.Manage.DataBase.SocialAppDataBase;
-import com.alexen.social.Manage.Entity.DatosUser;
+import com.alexen.social.manage.DataBase.SocialAppDataBase;
+import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -66,17 +63,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void guardarDatosUser(String username, String email, String password, String urlFoto){
 
-//        username=usernameEdit.getText().toString();
-//        email=emailEdit.getText().toString();
-//        password=passwordEdit.getText().toString();
-
-        DatosUser datosUser = new DatosUser(username,email,password,urlFoto);
-leerDatosUser();
-    }
-    public void leerDatosUser(){
-        SocialAppDataBase.getInstance(getApplicationContext()).socialAppDao();
-        System.out.println(SocialAppDataBase.getInstance(getApplicationContext()).socialAppDao());
-    }
 }

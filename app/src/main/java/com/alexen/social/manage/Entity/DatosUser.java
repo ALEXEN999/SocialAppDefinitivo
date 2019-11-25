@@ -1,4 +1,4 @@
-package com.alexen.social.Manage.Entity;
+package com.alexen.social.manage.Entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -16,10 +16,10 @@ public class DatosUser {
     public String descripcion;
     public String urlFoto;
 
-    public DatosUser(String username, String email, String password, String urlFoto) {
+
+    public DatosUser(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.urlFoto = urlFoto;
     }
 }

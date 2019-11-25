@@ -1,4 +1,4 @@
-package com.alexen.social.Manage.View;
+package com.alexen.social.manage.View;
 import androidx.room.DatabaseView;
 
 @DatabaseView("SELECT DatosUser.id, DatosUser.username, DatosUser.email, DatosUser.password, DatosUser.urlFoto " +
