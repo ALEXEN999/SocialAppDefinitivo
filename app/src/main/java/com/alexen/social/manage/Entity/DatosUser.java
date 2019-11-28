@@ -17,7 +17,7 @@ public class DatosUser {
     public String urlFoto;
 
 
-    public DatosUser(String username, String email, String password) {
+    public DatosUser(String username, String email, String password, String urlFoto) {
         this.username = username;
         this.email = email;
         this.password = password;

@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.alexen.social.manage.Entity.DatosUser;
-import com.alexen.social.manage.View.UserDetalle;
 
 @Dao
 public abstract class SocialAppDao {
@@ -17,9 +16,6 @@ public abstract class SocialAppDao {
 
     @Query("SELECT * FROM DatosUser WHERE username = :username")
     public abstract DatosUser comprobarDatosUser(String username);
-
-    @Query("SELECT * FROM UserDetalle")
-    public abstract LiveData<List<UserDetalle>> getUserDetalle();
 
 
 }

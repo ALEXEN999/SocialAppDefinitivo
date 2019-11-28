@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.manage.DataBase.SocialAppDataBase;
 import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.R;
@@ -19,16 +20,12 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-    EditText emailEdit,passwordEdit,usernameEdit;
 
     private final int PICKER =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        usernameEdit =findViewById(R.id.editTextUsername);
-        emailEdit = findViewById(R.id.editTextEmail);
-        passwordEdit = findViewById(R.id.editTextPassword);
         final BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

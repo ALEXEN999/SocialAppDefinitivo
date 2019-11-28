@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_Register"
-        android:name="com.alexen.social.ui.register.RegisterFragment"
+        android:name="com.alexen.social.ui.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register">
         <action

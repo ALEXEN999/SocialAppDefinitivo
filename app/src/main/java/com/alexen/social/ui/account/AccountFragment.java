@@ -1,10 +1,9 @@
 package com.alexen.social.ui.account;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,22 +20,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alexen.social.manage.Entity.DatosUser;
-import com.alexen.social.model.SocialAppViewModel;
+import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.ui.AccountPublicationsFragment;
 import com.alexen.social.R;
-import com.alexen.social.ui.register.RegisterFragment;
-import com.alexen.social.ui.UserFragment;
 import com.google.android.material.tabs.TabLayout;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import static android.app.Activity.RESULT_OK;
 
 public class AccountFragment extends Fragment {
     SocialAppViewModel socialAppViewModel;
@@ -78,19 +65,12 @@ public class AccountFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-//        if(user != null){
-//            Log.i("Username", user);
-//        }
-
-
-
     }
 
     private void mostrarPerfil(DatosUser datosUser) {
-        username.setText(datosUser.username);
-//        imageView.setImageURI(Uri.parse(datosUser.urlFoto));
+        username.setText(String.valueOf(datosUser.username));
+
+        imageView.setImageURI(Uri.parse(datosUser.urlFoto));
 
     }
 
