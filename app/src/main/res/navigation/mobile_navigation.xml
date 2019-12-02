@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/navigation_account_publications"
-        android:name="com.alexen.social.ui.AccountPublicationsFragment"
+        android:name="com.alexen.social.ui.account.AccountPublicationsFragment"
         android:label="@string/title_account" />
     <fragment
         android:id="@+id/navigation_notifications"

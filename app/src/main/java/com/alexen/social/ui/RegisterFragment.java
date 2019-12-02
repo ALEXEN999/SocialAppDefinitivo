@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
@@ -39,12 +41,9 @@ public class RegisterFragment extends Fragment {
     EditText passwordEdit;
     EditText usernameEdit;
 
-     String email;
-     String username;
-     String password;
-
 
     public RegisterFragment() {
+
     }
 
     @Override
@@ -69,33 +68,20 @@ public class RegisterFragment extends Fragment {
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email = emailEdit.getText().toString();
-                password = passwordEdit.getText().toString();
-                username = usernameEdit.getText().toString();
-                navController.navigate(R.id.navigation_User);
+                socialAppViewModel.email = emailEdit.getText().toString();
+                socialAppViewModel.password = passwordEdit.getText().toString();
+                socialAppViewModel.username = usernameEdit.getText().toString();
 
-//                socialAppViewModel.registrarUsuario(username,email,password);
-//
-//                socialAppViewModel.estadoDelRegistroMutableLiveData.observe(getViewLifecycleOwner(), new Observer<EstadoDelRegistro>() {
-//                    @Override
-//                    public void onChanged(EstadoDelRegistro estadoDelRegistro) {
-//                        switch (estadoDelRegistro){
-//                            case REGISTRO_COMPLETADO:
-//                                Log.e("Registrar user",username);
-//
-//                                navController.navigate(R.id.navigation_User);
-//                                break;
-//                            case NOMBRE_NO_DISPONIBLE:
-//
-//                                break;
-//                        }
-//                    }
-//                });
+
+
+
+                navController.navigate(R.id.navigation_User);
 
             }
         });
 
 
     }
+
 
 }

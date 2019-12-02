@@ -21,5 +21,6 @@ public class DatosUser {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.urlFoto = urlFoto;
     }
 }

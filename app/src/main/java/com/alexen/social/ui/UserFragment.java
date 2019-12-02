@@ -33,11 +33,12 @@ public class UserFragment extends Fragment {
     NavController navController;
     ImageView imagen;
     MainActivity mainActivity = new MainActivity();
-    RegisterFragment registerFragment = new RegisterFragment();
-    String url = " ";
-    String email = registerFragment.email;
-    String username = registerFragment.username;
-    String password = registerFragment.password;
+    RegisterFragment registerFragment;
+    String url = "";
+    String email = "";
+    String username = "";
+    String password = "";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_user, container, false);
@@ -56,7 +57,8 @@ public class UserFragment extends Fragment {
             @SuppressLint("IntentReset")
             @Override
             public void onClick(View v) {
-            cargarFoto();
+
+                cargarFoto();
 
             }
         });
@@ -76,8 +78,12 @@ public class UserFragment extends Fragment {
             imagen.setImageURI(path);
             url = String.valueOf(path);
 
-            socialAppViewModel.registrarUsuario(username,email,password, url);
+            username = socialAppViewModel.username;
+            email = socialAppViewModel.email;
+            password = socialAppViewModel.password;
 
+
+            socialAppViewModel.registrarUsuario(username,email,password,url);
             socialAppViewModel.estadoDelRegistroMutableLiveData.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelRegistro>() {
                 @Override
                 public void onChanged(SocialAppViewModel.EstadoDelRegistro estadoDelRegistro) {
@@ -92,6 +98,8 @@ public class UserFragment extends Fragment {
                     }
                 }
             });
+
+
         }
     }
 

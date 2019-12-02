@@ -1,9 +1,12 @@
 package com.alexen.social.ui.account;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -21,7 +26,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.ViewModel.SocialAppViewModel;
-import com.alexen.social.ui.AccountPublicationsFragment;
 import com.alexen.social.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -42,6 +46,8 @@ public class AccountFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
         imageView = view.findViewById(R.id.imageViewAccountPhoto);
+
+
         username = view.findViewById(R.id.textViewUsername);
 
         socialAppViewModel.datosUserMutableLiveData.observe(getViewLifecycleOwner(), new Observer<DatosUser>() {
