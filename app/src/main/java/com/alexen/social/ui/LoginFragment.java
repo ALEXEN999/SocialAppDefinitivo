@@ -1,27 +1,22 @@
 package com.alexen.social.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.alexen.social.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import static android.content.ContentValues.TAG;
+import com.alexen.social.ViewModel.SocialAppViewModel;
 
 public class LoginFragment extends Fragment {
 
@@ -32,6 +27,8 @@ public class LoginFragment extends Fragment {
 
     String email;
     String password;
+    SocialAppViewModel socialAppViewModel;
+    NavController navController;
 
     public LoginFragment() {
     }
@@ -46,6 +43,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
+        navController = Navigation.findNavController(view);
         // Initialize Firebase Auth
         emailEdit = view.findViewById(R.id.editTextUsername);
         passwordEdit = view.findViewById(R.id.editTextPassword);
@@ -57,6 +56,27 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 email = emailEdit.getText().toString();
                 password = passwordEdit.getText().toString();
+                socialAppViewModel.resetearEstadoUsuario();
+                socialAppViewModel.loginUsuario(email, password);
+                socialAppViewModel.estadoDelLogin.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelLogin>() {
+                    @Override
+                    public void onChanged(SocialAppViewModel.EstadoDelLogin estadoDelLogin) {
+                        switch (estadoDelLogin){
+                            case LOGIN_COMPLETADO:
+
+                                navController.navigate(R.id.navigation_accountT);
+                                break;
+                            case EMAIL_NO_DISPONIBLE:
+
+                                break;
+                            case CREDENCIALES_NO_VALIDAS:
+
+                                break;
+                        }
+                    }
+                });
+
+
             }
         });
 

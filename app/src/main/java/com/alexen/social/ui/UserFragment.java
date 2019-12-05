@@ -28,7 +28,7 @@ import static android.app.Activity.RESULT_OK;
 
 
 public class UserFragment extends Fragment {
-    private static Button button;
+    private Button button;
     SocialAppViewModel socialAppViewModel;
     NavController navController;
     ImageView imagen;
@@ -57,13 +57,34 @@ public class UserFragment extends Fragment {
             @SuppressLint("IntentReset")
             @Override
             public void onClick(View v) {
-
                 cargarFoto();
+            }
+        });
 
+        socialAppViewModel.estadoDelRegistro.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelRegistro>() {
+            @Override
+            public void onChanged(SocialAppViewModel.EstadoDelRegistro estadoDelRegistro) {
+                switch (estadoDelRegistro){
+                    case NOMBRE_NO_DISPONIBLE:
+                        Log.e("ABCD", "NOMBRE NO DISPONILBE");
+                        break;
+                }
+            }
+        });
+
+        socialAppViewModel.estadoDelLogin.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelLogin>() {
+            @Override
+            public void onChanged(SocialAppViewModel.EstadoDelLogin estadoDelLogin) {
+                switch (estadoDelLogin){
+                    case LOGIN_COMPLETADO:
+                        navController.navigate(R.id.navigation_accountT);
+                        break;
+                }
             }
         });
 
     }
+
     public void cargarFoto(){
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/");
@@ -83,26 +104,7 @@ public class UserFragment extends Fragment {
             password = socialAppViewModel.password;
 
 
-            socialAppViewModel.registrarUsuario(username,email,password,url);
-            socialAppViewModel.estadoDelRegistroMutableLiveData.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelRegistro>() {
-                @Override
-                public void onChanged(SocialAppViewModel.EstadoDelRegistro estadoDelRegistro) {
-                    switch (estadoDelRegistro){
-                        case REGISTRO_COMPLETADO:
-
-                            navController.navigate(R.id.navigation_accountT);
-                            break;
-                        case NOMBRE_NO_DISPONIBLE:
-
-                            break;
-                    }
-                }
-            });
-
-
+            socialAppViewModel.registrarUsuarioAndLogin(username,email,password,url);
         }
     }
-
-
-
 }

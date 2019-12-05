@@ -59,7 +59,8 @@ public class RegisterFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
         navController = Navigation.findNavController(view);
 
-        // Initialize Firebase Auth
+        socialAppViewModel.reiniciarRegistro();
+
         usernameEdit =view.findViewById(R.id.editTextUsername);
         emailEdit = view.findViewById(R.id.editTextEmail);
         passwordEdit = view.findViewById(R.id.editTextPassword);
@@ -72,16 +73,8 @@ public class RegisterFragment extends Fragment {
                 socialAppViewModel.password = passwordEdit.getText().toString();
                 socialAppViewModel.username = usernameEdit.getText().toString();
 
-
-
-
                 navController.navigate(R.id.navigation_User);
-
             }
         });
-
-
     }
-
-
 }

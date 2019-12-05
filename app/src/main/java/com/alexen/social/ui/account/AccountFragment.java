@@ -1,10 +1,6 @@
 package com.alexen.social.ui.account;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,13 +11,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alexen.social.manage.Entity.DatosUser;
@@ -31,6 +26,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class AccountFragment extends Fragment {
     SocialAppViewModel socialAppViewModel;
+    NavController navController;
 
     ImageView imageView;
     TextView username;
@@ -50,11 +46,11 @@ public class AccountFragment extends Fragment {
 
         username = view.findViewById(R.id.textViewUsername);
 
-        socialAppViewModel.datosUserMutableLiveData.observe(getViewLifecycleOwner(), new Observer<DatosUser>() {
+        socialAppViewModel.usuarioLogeado.observe(getViewLifecycleOwner(), new Observer<DatosUser>() {
             @Override
             public void onChanged(DatosUser datosUser) {
                 if(datosUser == null){
-                    // navigar loing
+                    navController.navigate(R.id.navigation_login);
                 } else {
                     mostrarPerfil(datosUser);
                 }
