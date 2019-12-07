@@ -55,8 +55,9 @@ public class SocialAppViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 DatosUser datosUser = socialAppDao.comprobarUserName(username);
+                DatosUser datosEmailUser = socialAppDao.comprobarEmailUser(email);
 
-                if (datosUser == null){
+                if (datosUser == null && datosEmailUser == null){
                     socialAppDao.insertarDatosUser(new DatosUser(username, email, password,urlFoto));
                     estadoDelRegistro.postValue(EstadoDelRegistro.REGISTRO_COMPLETADO);
                     loginUsuario(email, password);
@@ -72,7 +73,7 @@ public class SocialAppViewModel extends AndroidViewModel {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                DatosUser user = socialAppDao.comprobarEmailUser(email, password);
+                DatosUser user = socialAppDao.comprobarEmailPassUser(email, password);
 
                 if (user == null){
                     estadoDelLogin.postValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);

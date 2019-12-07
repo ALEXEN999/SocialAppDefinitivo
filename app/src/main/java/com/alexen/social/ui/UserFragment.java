@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
@@ -67,6 +68,8 @@ public class UserFragment extends Fragment {
                 switch (estadoDelRegistro){
                     case NOMBRE_NO_DISPONIBLE:
                         Log.e("ABCD", "NOMBRE NO DISPONILBE");
+                        Toast.makeText(requireContext(),"Username o Email NO DISPONIBLE",Toast.LENGTH_SHORT).show();
+
                         break;
                 }
             }

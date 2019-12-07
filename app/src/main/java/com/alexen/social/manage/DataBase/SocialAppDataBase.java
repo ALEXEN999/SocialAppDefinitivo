@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.alexen.social.manage.Dao.SocialAppDao;
 import com.alexen.social.manage.Entity.DatosUser;
 
-@Database(entities = {DatosUser.class}, version = 5,exportSchema = false)
+@Database(entities = {DatosUser.class}, version = 6,exportSchema = false)
 public abstract class SocialAppDataBase extends RoomDatabase {
 
     public static SocialAppDataBase INSTANCE;
