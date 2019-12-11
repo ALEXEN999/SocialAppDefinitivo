@@ -10,6 +10,10 @@ import androidx.lifecycle.MutableLiveData;
 import com.alexen.social.manage.Dao.SocialAppDao;
 import com.alexen.social.manage.DataBase.SocialAppDataBase;
 import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.Publication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SocialAppViewModel extends AndroidViewModel {
     SocialAppDao socialAppDao;
@@ -40,10 +44,28 @@ public class SocialAppViewModel extends AndroidViewModel {
     public MutableLiveData<EstadoDelRegistro> estadoDelRegistro = new MutableLiveData<>();
     public MutableLiveData<EstadoDelLogin> estadoDelLogin = new MutableLiveData<>();
 
+    public MutableLiveData<List<Publication>> listaPublications = new MutableLiveData<>();
+    public MutableLiveData<Publication> publicationSeleccionado = new MutableLiveData<>();
 
     public SocialAppViewModel(@NonNull Application application) {
         super(application);
         socialAppDao = SocialAppDataBase.getInstance(application).socialAppDao();
+
+        rellenarListaPublication();
+    }
+
+    public void rellenarListaPublication(){
+        List<Publication> publications = new ArrayList<>();
+        for (int i = 0; i < 200; i++) {
+            Publication publication = new Publication();
+            publication.urlPublicationSource = uri;
+            publications.add(publication);
+        }
+        listaPublications.setValue(publications);
+    }
+
+    public void establecerPublicacionSeleccionado(Publication publication){
+        publicationSeleccionado.setValue(publication);
     }
 
     public  void reiniciarRegistro(){

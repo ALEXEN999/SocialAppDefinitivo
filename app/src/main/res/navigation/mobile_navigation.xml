@@ -63,4 +63,19 @@
         android:id="@+id/navigation_account_chats"
         android:name="com.alexen.social.ui.account.AccountChatsFragment"
         android:label="@string/title_account" />
+    <fragment
+        android:id="@+id/navigation_configuration"
+        android:name="com.alexen.social.navigation_configuration"
+        android:label="fragment_configuration"
+        tools:layout="@layout/fragment_configuration" />
+    <fragment
+        android:id="@+id/navigation_ListaPublicaciones"
+        android:name="com.alexen.social.ListaPublicacionesFragment"
+        android:label="fragment_lista_publicaciones"
+        tools:layout="@layout/fragment_lista_publicaciones" />
+    <fragment
+        android:id="@+id/navigation_DetallePublicationFragment"
+        android:name="com.alexen.social.DetallePublicationFragment"
+        android:label="fragment_detalle_publication"
+        tools:layout="@layout/fragment_detalle_publication" />
 </navigation>
