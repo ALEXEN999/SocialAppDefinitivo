@@ -24,5 +24,6 @@
     <string name="accountphoto">accountPhoto</string>
     <string name="subir_foto">Subir foto</string>
     <string name="publicationimage">PublicationImage</string>
+    <string name="texto_de_ejemplo">TEXTO DE EJEMPLO</string>
 
 </resources>

@@ -37,7 +37,6 @@ public class SocialAppViewModel extends AndroidViewModel {
     public String email;
     public String username;
     public String password;
-    public String uri;
 
     public MutableLiveData<DatosUser> usuarioLogeado = new MutableLiveData<>();
 
@@ -58,7 +57,7 @@ public class SocialAppViewModel extends AndroidViewModel {
         List<Publication> publications = new ArrayList<>();
         for (int i = 0; i < 200; i++) {
             Publication publication = new Publication();
-            publication.urlPublicationSource = uri;
+            publication.urlPublicationSource = "drawable-v24/image.png";
             publications.add(publication);
         }
         listaPublications.setValue(publications);

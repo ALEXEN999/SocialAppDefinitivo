@@ -22,10 +22,6 @@
         tools:layout="@layout/fragment_account" />
 
     <fragment
-        android:id="@+id/navigation_account_publications"
-        android:name="com.alexen.social.ui.account.AccountPublicationsFragment"
-        android:label="@string/title_account" />
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.alexen.social.ui.NotificationsFragment"
         android:label="@string/title_notifications"
@@ -69,13 +65,18 @@
         android:label="fragment_configuration"
         tools:layout="@layout/fragment_configuration" />
     <fragment
-        android:id="@+id/navigation_ListaPublicaciones"
-        android:name="com.alexen.social.ListaPublicacionesFragment"
-        android:label="fragment_lista_publicaciones"
-        tools:layout="@layout/fragment_lista_publicaciones" />
+        android:id="@+id/navigation_account_PublicationsFragment"
+        android:name="com.alexen.social.AccountPublicationsFragment"
+        android:label="fragment_account_publications"
+        tools:layout="@layout/fragment_account_publications" />
     <fragment
-        android:id="@+id/navigation_DetallePublicationFragment"
+        android:id="@+id/navigation_detallePublicationFragment"
         android:name="com.alexen.social.DetallePublicationFragment"
         android:label="fragment_detalle_publication"
         tools:layout="@layout/fragment_detalle_publication" />
+    <fragment
+        android:id="@+id/listaPublicationsFragment"
+        android:name="com.alexen.social.listaPublicationsFragment"
+        android:label="fragment_lista_publications"
+        tools:layout="@layout/fragment_lista_publications" />
 </navigation>

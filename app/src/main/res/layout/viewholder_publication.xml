@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="8dp"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/imageViewHolder"
@@ -14,4 +15,10 @@
         app:srcCompat="@drawable/ic_wallpaper_black_24dp"
         tools:ignore="VectorDrawableCompat"
         android:contentDescription="@string/publicationimage" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_de_ejemplo" />
 </LinearLayout>

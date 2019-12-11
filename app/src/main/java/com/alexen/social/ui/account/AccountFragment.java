@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.R;
+import com.alexen.social.ui.AccountPublicationsFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class AccountFragment extends Fragment {
