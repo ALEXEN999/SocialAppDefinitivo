@@ -57,6 +57,7 @@ public class SocialAppViewModel extends AndroidViewModel {
         List<Publication> publications = new ArrayList<>();
         for (int i = 0; i < 200; i++) {
             Publication publication = new Publication();
+            publication.coment = "COMMMENT  " + i;
             publication.urlPublicationSource = "drawable-v24/image.png";
             publications.add(publication);
         }

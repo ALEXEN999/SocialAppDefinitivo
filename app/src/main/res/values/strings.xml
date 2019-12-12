@@ -25,5 +25,16 @@
     <string name="subir_foto">Subir foto</string>
     <string name="publicationimage">PublicationImage</string>
     <string name="texto_de_ejemplo">TEXTO DE EJEMPLO</string>
+    <string name="ubication">Ubication</string>
+    <string name="usernamePublication">Username</string>
+    <string name="imagepublicationaccount">ImagePublicationAccount</string>
+    <string name="imagepublication">ImagePublication</string>
+    <string name="esta_publicacion_tiene">Esta publicacion tiene</string>
+    <string name="contador_likes">0</string>
+    <string name="like_title">Like</string>
+    <string name="contador_dislike">0</string>
+    <string name="disike_title">Disike</string>
+    <string name="buttonlike">ButtonLike</string>
+    <string name="buttondislike">ButtonDislike</string>
 
 </resources>

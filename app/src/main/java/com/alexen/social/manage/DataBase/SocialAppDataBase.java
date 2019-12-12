@@ -26,7 +26,7 @@ public abstract class SocialAppDataBase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
-                            crearAdminUser(getInstance(context).socialAppDao());
+                            insertarDatosIniciales(getInstance(context).socialAppDao());
                         }
                     })
                     .build();
@@ -35,11 +35,14 @@ public abstract class SocialAppDataBase extends RoomDatabase {
     }
 
 
-    static void crearAdminUser(final SocialAppDao SocialAppDao){
+    static void insertarDatosIniciales(final SocialAppDao SocialAppDao){
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 SocialAppDao.insertarDatosUser(new DatosUser("admin","admin@gmail.com","admin",""));
+
+
+
             }
         });
     }

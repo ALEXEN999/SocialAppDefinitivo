@@ -23,4 +23,6 @@ public abstract class SocialAppDao {
     @Query("SELECT * FROM DatosUser WHERE email = :email AND password = :password")
     public abstract DatosUser comprobarEmailPassUser(String email, String password);
 
+
+
 }

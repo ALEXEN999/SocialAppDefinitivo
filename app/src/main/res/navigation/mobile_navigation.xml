@@ -30,26 +30,12 @@
         android:id="@+id/navigation_login"
         android:name="com.alexen.social.ui.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_navigation_login_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_navigation_login_to_navigation_Register"
-            app:destination="@id/navigation_Register" />
-    </fragment>
+        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/navigation_Register"
         android:name="com.alexen.social.ui.RegisterFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/action_navigation_login_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_navigation_Register_to_userFragment"
-            app:destination="@id/navigation_User" />
-    </fragment>
+        tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/navigation_User"
         android:name="com.alexen.social.ui.UserFragment"
@@ -66,7 +52,7 @@
         tools:layout="@layout/fragment_configuration" />
     <fragment
         android:id="@+id/navigation_account_PublicationsFragment"
-        android:name="com.alexen.social.AccountPublicationsFragment"
+        android:name="com.alexen.social.ui.AccountPublicationsFragment"
         android:label="fragment_account_publications"
         tools:layout="@layout/fragment_account_publications" />
     <fragment
@@ -74,9 +60,4 @@
         android:name="com.alexen.social.DetallePublicationFragment"
         android:label="fragment_detalle_publication"
         tools:layout="@layout/fragment_detalle_publication" />
-    <fragment
-        android:id="@+id/listaPublicationsFragment"
-        android:name="com.alexen.social.listaPublicationsFragment"
-        android:label="fragment_lista_publications"
-        tools:layout="@layout/fragment_lista_publications" />
 </navigation>

@@ -23,6 +23,7 @@ import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.R;
 import com.alexen.social.ui.AccountPublicationsFragment;
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
 public class AccountFragment extends Fragment {
@@ -73,7 +74,7 @@ public class AccountFragment extends Fragment {
     private void mostrarPerfil(DatosUser datosUser) {
         username.setText(String.valueOf(datosUser.username));
 
-        imageView.setImageURI(Uri.parse(datosUser.urlFoto));
+        Glide.with(requireActivity()).load(Uri.parse(datosUser.urlFoto)).into(imageView);
 
     }
 

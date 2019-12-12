@@ -13,6 +13,7 @@ public class Publication {
 
     public String coment;
     public String ubication;
+    public String usernameAccount;
     public int likes;
     public int dislike;
     public String urlPublicationSource;

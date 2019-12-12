@@ -28,7 +28,8 @@
             android:hint="@string/username"
             android:inputType="text"
             android:importantForAutofill="no"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:text="admin@gmail.com"/>
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
@@ -36,7 +37,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_margin="10dp"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:text="admin"/>
 
         <Button
             android:id="@+id/buttonIniciarSesion"

@@ -9,7 +9,7 @@
     tools:ignore="UseCompoundDrawables">
 
     <ImageView
-        android:id="@+id/imageViewHolder"
+        android:id="@+id/imageView_foto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_wallpaper_black_24dp"
@@ -17,7 +17,7 @@
         android:contentDescription="@string/publicationimage" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_coment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/texto_de_ejemplo" />
