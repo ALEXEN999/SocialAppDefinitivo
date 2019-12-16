@@ -33,7 +33,7 @@
     <string name="contador_likes">0</string>
     <string name="like_title">Like</string>
     <string name="contador_dislike">0</string>
-    <string name="disike_title">Disike</string>
+    <string name="disike_title">Dislike</string>
     <string name="buttonlike">ButtonLike</string>
     <string name="buttondislike">ButtonDislike</string>
 

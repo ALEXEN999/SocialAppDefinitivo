@@ -40,10 +40,8 @@ public abstract class SocialAppDataBase extends RoomDatabase {
             @Override
             public void run() {
                 SocialAppDao.insertarDatosUser(new DatosUser("admin","admin@gmail.com","admin",""));
-
-
-
             }
         });
     }
+    
 }

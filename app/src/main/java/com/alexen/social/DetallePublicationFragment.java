@@ -1,6 +1,7 @@
 package com.alexen.social;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,10 +13,12 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alexen.social.ViewModel.SocialAppViewModel;
+import com.alexen.social.manage.Entity.DatosUser;
 import com.alexen.social.manage.Entity.Publication;
 import com.bumptech.glide.Glide;
 
@@ -28,7 +31,9 @@ public class DetallePublicationFragment extends Fragment {
     SocialAppViewModel socialAppViewModel;
     TextView coment, ubication,username,likes,disklike;
     ImageView publicationSource, accountImage;
-
+    ImageButton likeButton, dislikeButton;
+    int likeC = 0, dislikeC = 0;
+    DatosUser datosUser;
     public DetallePublicationFragment() {
         // Required empty public constructor
     }
@@ -51,7 +56,8 @@ public class DetallePublicationFragment extends Fragment {
         disklike = view.findViewById(R.id.countDislikeTextView);
         publicationSource = view.findViewById(R.id.publicationImageView);
         accountImage = view.findViewById(R.id.userNamePublicationImageView);
-
+        dislikeButton = view.findViewById(R.id.buttonDislikeImageButton);
+        likeButton = view.findViewById(R.id.buttonLikeImageButton);
 
         socialAppViewModel.publicationSeleccionado.observe(getViewLifecycleOwner(), new Observer<Publication>() {
             @Override
@@ -62,9 +68,28 @@ public class DetallePublicationFragment extends Fragment {
                 username.setText(publication.usernameAccount);
                 ubication.setText(publication.ubication);
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
-                likes.setText(publication.likes);
-                disklike.setText(publication.dislike);
+                likes.setText(String.valueOf(publication.likes));
+                disklike.setText(String.valueOf(publication.dislike));
+                
+
+                likeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        likeC += 1;
+                        publication.likes=likeC;
+                        likes.setText(String.valueOf(likeC));
+                    }
+                });
+                dislikeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dislikeC += 1;
+                        publication.dislike = dislikeC;
+                        disklike.setText(String.valueOf(dislikeC));
+                    }
+                });
             }
         });
+
     }
 }

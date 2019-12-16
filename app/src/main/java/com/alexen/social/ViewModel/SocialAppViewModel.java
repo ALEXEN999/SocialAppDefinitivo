@@ -1,6 +1,7 @@
 package com.alexen.social.ViewModel;
 
 import android.app.Application;
+import android.app.DirectAction;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class SocialAppViewModel extends AndroidViewModel {
     SocialAppDao socialAppDao;
+    DatosUser datosUser;
 
     public void resetearEstadoUsuario() {
         estadoDelLogin.setValue(EstadoDelLogin.INITIAL);
@@ -59,6 +61,12 @@ public class SocialAppViewModel extends AndroidViewModel {
             Publication publication = new Publication();
             publication.coment = "COMMMENT  " + i;
             publication.urlPublicationSource = "drawable-v24/image.png";
+            publication.usernameAccount = username;
+//            publication.urlAccountImage = datosUser.urlFoto;
+            publication.likes=0;
+            publication.dislike=0;
+            publication.ubication="ubication"+i;
+
             publications.add(publication);
         }
         listaPublications.setValue(publications);

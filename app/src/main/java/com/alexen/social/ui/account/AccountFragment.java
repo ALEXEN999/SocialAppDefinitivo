@@ -55,6 +55,7 @@ public class AccountFragment extends Fragment {
                     navController.navigate(R.id.navigation_login);
                 } else {
                     mostrarPerfil(datosUser);
+                    socialAppViewModel.username = username.getText().toString();
                 }
             }
         });
@@ -73,7 +74,6 @@ public class AccountFragment extends Fragment {
 
     private void mostrarPerfil(DatosUser datosUser) {
         username.setText(String.valueOf(datosUser.username));
-
         Glide.with(requireActivity()).load(Uri.parse(datosUser.urlFoto)).into(imageView);
 
     }
