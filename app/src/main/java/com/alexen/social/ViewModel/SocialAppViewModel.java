@@ -1,8 +1,8 @@
 package com.alexen.social.ViewModel;
 
 import android.app.Application;
-import android.app.DirectAction;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.alexen.social.manage.Dao.SocialAppDao;
 import com.alexen.social.manage.DataBase.SocialAppDataBase;
-import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;
 
 import java.util.ArrayList;
@@ -18,7 +18,6 @@ import java.util.List;
 
 public class SocialAppViewModel extends AndroidViewModel {
     SocialAppDao socialAppDao;
-    DatosUser datosUser;
 
     public void resetearEstadoUsuario() {
         estadoDelLogin.setValue(EstadoDelLogin.INITIAL);
@@ -36,17 +35,27 @@ public class SocialAppViewModel extends AndroidViewModel {
         CREDENCIALES_NO_VALIDAS,
         LOGIN_COMPLETADO
     }
+
+    public enum EstadoDelGetUsuario {
+        INITIAL,
+        NOEXISTE,
+        ENCONTRADO
+    }
     public String email;
     public String username;
     public String password;
 
-    public MutableLiveData<DatosUser> usuarioLogeado = new MutableLiveData<>();
+    public MutableLiveData<User> usuarioLogeado = new MutableLiveData<>();
+    public MutableLiveData<User> usuarioRecicler= new MutableLiveData<>();
+
 
     public MutableLiveData<EstadoDelRegistro> estadoDelRegistro = new MutableLiveData<>();
     public MutableLiveData<EstadoDelLogin> estadoDelLogin = new MutableLiveData<>();
 
     public MutableLiveData<List<Publication>> listaPublications = new MutableLiveData<>();
     public MutableLiveData<Publication> publicationSeleccionado = new MutableLiveData<>();
+    public MutableLiveData<EstadoDelGetUsuario> estadoGetUsuario = new MutableLiveData<>();
+
 
     public SocialAppViewModel(@NonNull Application application) {
         super(application);
@@ -61,7 +70,6 @@ public class SocialAppViewModel extends AndroidViewModel {
             Publication publication = new Publication();
             publication.coment = "COMMMENT  " + i;
             publication.urlPublicationSource = "drawable-v24/image.png";
-            publication.usernameAccount = username;
 //            publication.urlAccountImage = datosUser.urlFoto;
             publication.likes=0;
             publication.dislike=0;
@@ -84,11 +92,11 @@ public class SocialAppViewModel extends AndroidViewModel {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                DatosUser datosUser = socialAppDao.comprobarUserName(username);
-                DatosUser datosEmailUser = socialAppDao.comprobarEmailUser(email);
+                User user = socialAppDao.comprobarUserName(username);
+                User datosEmailUser = socialAppDao.comprobarEmailUser(email);
 
-                if (datosUser == null && datosEmailUser == null){
-                    socialAppDao.insertarDatosUser(new DatosUser(username, email, password,urlFoto));
+                if (user == null && datosEmailUser == null){
+                    socialAppDao.insertarUser(new User(username, email, password,urlFoto));
                     estadoDelRegistro.postValue(EstadoDelRegistro.REGISTRO_COMPLETADO);
                     loginUsuario(email, password);
                 }else {
@@ -103,7 +111,7 @@ public class SocialAppViewModel extends AndroidViewModel {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                DatosUser user = socialAppDao.comprobarEmailPassUser(email, password);
+                User user = socialAppDao.comprobarEmailPassUser(email, password);
 
                 if (user == null){
                     estadoDelLogin.postValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);
@@ -111,6 +119,27 @@ public class SocialAppViewModel extends AndroidViewModel {
                     estadoDelLogin.postValue(EstadoDelLogin.LOGIN_COMPLETADO);
                     usuarioLogeado.postValue(user);
                 }
+            }
+        });
+    }
+
+    public void getUserPhoto(final int userId){
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                User user = socialAppDao.comprobarUserAndPhoto(userId);
+
+                estadoGetUsuario.postValue(EstadoDelGetUsuario.INITIAL);
+
+                if (user == null){
+                    estadoGetUsuario.postValue(EstadoDelGetUsuario.NOEXISTE);
+                    Log.e("ABCD", "User not exist! " + userId);
+                }
+                else {
+                    estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
+                    usuarioRecicler.postValue(user);
+                }
+
             }
         });
     }

@@ -1,28 +1,30 @@
 package com.alexen.social.manage.Dao;
 
-import java.util.List;
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.User;
 
 @Dao
 public abstract class SocialAppDao {
 
     @Insert
-    public abstract void insertarDatosUser(DatosUser datosUser);
+    public abstract void insertarUser(User user);
 
-    @Query("SELECT * FROM DatosUser WHERE username = :username")
-    public abstract DatosUser comprobarUserName(String username);
+    @Query("SELECT * FROM User WHERE username = :username")
+    public abstract User comprobarUserName(String username);
 
-    @Query("SELECT * FROM DatosUser WHERE email = :email")
-    public abstract DatosUser comprobarEmailUser(String email);
+    @Query("SELECT * FROM User WHERE id = :id")
+    public abstract User comprobarUserNameById(int id);
 
-    @Query("SELECT * FROM DatosUser WHERE email = :email AND password = :password")
-    public abstract DatosUser comprobarEmailPassUser(String email, String password);
+    @Query("SELECT * FROM User WHERE email = :email")
+    public abstract User comprobarEmailUser(String email);
 
+    @Query("SELECT * FROM User WHERE email = :email AND password = :password")
+    public abstract User comprobarEmailPassUser(String email, String password);
 
+    @Query("SELECT username, urlFoto FROM User WHERE User.id = :userId")
+    public abstract User comprobarUserAndPhoto(int userId);
 
 }

@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.viewpager.widget.ViewPager;
 
-import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.User;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.R;
 import com.alexen.social.ui.AccountPublicationsFragment;
@@ -48,13 +48,13 @@ public class AccountFragment extends Fragment {
 
         username = view.findViewById(R.id.textViewUsername);
 
-        socialAppViewModel.usuarioLogeado.observe(getViewLifecycleOwner(), new Observer<DatosUser>() {
+        socialAppViewModel.usuarioLogeado.observe(getViewLifecycleOwner(), new Observer<User>() {
             @Override
-            public void onChanged(DatosUser datosUser) {
-                if(datosUser == null){
+            public void onChanged(User user) {
+                if(user == null){
                     navController.navigate(R.id.navigation_login);
                 } else {
-                    mostrarPerfil(datosUser);
+                    mostrarPerfil(user);
                     socialAppViewModel.username = username.getText().toString();
                 }
             }
@@ -72,9 +72,9 @@ public class AccountFragment extends Fragment {
 
     }
 
-    private void mostrarPerfil(DatosUser datosUser) {
-        username.setText(String.valueOf(datosUser.username));
-        Glide.with(requireActivity()).load(Uri.parse(datosUser.urlFoto)).into(imageView);
+    private void mostrarPerfil(User user) {
+        username.setText(String.valueOf(user.username));
+        Glide.with(requireActivity()).load(Uri.parse(user.urlFoto)).into(imageView);
 
     }
 

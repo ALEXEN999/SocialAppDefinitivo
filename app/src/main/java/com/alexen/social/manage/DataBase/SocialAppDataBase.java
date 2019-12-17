@@ -9,9 +9,10 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.alexen.social.manage.Dao.SocialAppDao;
-import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.User;
+import com.alexen.social.manage.Entity.Publication;
 
-@Database(entities = {DatosUser.class}, version = 6,exportSchema = false)
+@Database(entities = {User.class, Publication.class}, version = 9,exportSchema = false)
 public abstract class SocialAppDataBase extends RoomDatabase {
 
     public static SocialAppDataBase INSTANCE;
@@ -39,9 +40,8 @@ public abstract class SocialAppDataBase extends RoomDatabase {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                SocialAppDao.insertarDatosUser(new DatosUser("admin","admin@gmail.com","admin",""));
+                SocialAppDao.insertarUser(new User("admin","admin@gmail.com","admin",""));
             }
         });
     }
-    
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alexen.social.ViewModel.SocialAppViewModel;
-import com.alexen.social.manage.Entity.DatosUser;
+import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;
 import com.bumptech.glide.Glide;
 
@@ -33,7 +34,7 @@ public class DetallePublicationFragment extends Fragment {
     ImageView publicationSource, accountImage;
     ImageButton likeButton, dislikeButton;
     int likeC = 0, dislikeC = 0;
-    DatosUser datosUser;
+    User user;
     public DetallePublicationFragment() {
         // Required empty public constructor
     }
@@ -63,14 +64,33 @@ public class DetallePublicationFragment extends Fragment {
             @Override
             public void onChanged(final Publication publication) {
                 if(publication == null) return;
-
-                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
+                //Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
                 username.setText(publication.usernameAccount);
                 ubication.setText(publication.ubication);
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
-                
+                socialAppViewModel.estadoGetUsuario.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelGetUsuario> (){
+
+                    @Override
+                    public void onChanged(SocialAppViewModel.EstadoDelGetUsuario estadoDelGetUsuario) {
+                        switch (estadoDelGetUsuario){
+                            case NOEXISTE:
+                                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
+                                Log.e("ABCD", "sin photo.");
+                                break;
+                            case ENCONTRADO:
+                                Glide.with(requireActivity()).load(Uri.parse(socialAppViewModel.usuarioRecicler.getValue().urlFoto)).into(accountImage);
+                                Log.e("ABCD", socialAppViewModel.usuarioRecicler.getValue().urlFoto);
+                                break;
+                            default:
+                                Log.e("ABCD", estadoDelGetUsuario.name());
+                                break;
+
+                        }
+                    }
+                });
+
 
                 likeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -90,6 +110,8 @@ public class DetallePublicationFragment extends Fragment {
                 });
             }
         });
+
+
 
     }
 }

@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class DatosUser {
+public class User {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
@@ -17,7 +17,7 @@ public class DatosUser {
     public String urlFoto;
 
 
-    public DatosUser(String username, String email, String password, String urlFoto) {
+    public User(String username, String email, String password, String urlFoto) {
         this.username = username;
         this.email = email;
         this.password = password;

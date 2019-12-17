@@ -73,8 +73,9 @@ public class AccountPublicationsFragment extends Fragment {
         public void onBindViewHolder(@NonNull PublicationViewHolder holder, final int position) {
 
             final Publication publication = publications.get(position);
-
             holder.tituloTextView.setText(publication.coment);
+            socialAppViewModel.getUserPhoto(publication.usernameAccount);
+
 
             // GLIDE
             Glide.with(requireActivity()).load(R.drawable.image).into(holder.fotoImageView);
