@@ -21,10 +21,10 @@ public abstract class SocialAppDao {
     @Query("SELECT * FROM User WHERE email = :email")
     public abstract User comprobarEmailUser(String email);
 
-    @Query("SELECT * FROM User WHERE email = :email AND password = :password")
-    public abstract User comprobarEmailPassUser(String email, String password);
+    @Query("SELECT * FROM User WHERE username = :username AND password = :password")
+    public abstract User comprobarUsernamePassUser(String username, String password);
 
-    @Query("SELECT username, urlFoto FROM User WHERE User.id = :userId")
-    public abstract User comprobarUserAndPhoto(int userId);
+//    @Query("SELECT username, urlFoto FROM User WHERE User.id = :userId")
+//    public abstract User comprobarUserAndPhoto(int userId);
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class SocialAppViewModel extends AndroidViewModel {
     SocialAppDao socialAppDao;
-
+    SocialAppViewModel socialAppViewModel;
     public void resetearEstadoUsuario() {
         estadoDelLogin.setValue(EstadoDelLogin.INITIAL);
     }
@@ -65,19 +65,29 @@ public class SocialAppViewModel extends AndroidViewModel {
     }
 
     public void rellenarListaPublication(){
-        List<Publication> publications = new ArrayList<>();
-        for (int i = 0; i < 200; i++) {
-            Publication publication = new Publication();
-            publication.coment = "COMMMENT  " + i;
-            publication.urlPublicationSource = "drawable-v24/image.png";
-//            publication.urlAccountImage = datosUser.urlFoto;
-            publication.likes=0;
-            publication.dislike=0;
-            publication.ubication="ubication"+i;
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                List<Publication> publications = new ArrayList<>();
+                for (int i = 0; i < 200; i++) {
+                    Publication publication = new Publication();
+                    publication.coment = "COMMMENT  " + i;
+                    publication.urlPublicationSource = "drawable-v24/image.png";
+        //          publication.urlAccountImage = datosUser.urlFoto;
+                    if (username !=null)publication.user = socialAppViewModel.username;
 
-            publications.add(publication);
-        }
-        listaPublications.setValue(publications);
+                    Log.e("ABCD",publication.user + " "+ username);
+
+                    publication.likes=0;
+                    publication.dislike=0;
+                    publication.ubication="ubication"+i;
+
+                    publications.add(publication);
+                }
+                listaPublications.postValue(publications);
+            }
+        });
+
     }
 
     public void establecerPublicacionSeleccionado(Publication publication){
@@ -107,11 +117,11 @@ public class SocialAppViewModel extends AndroidViewModel {
         });
     }
 
-    public void loginUsuario(final String email, final String password){
+    public void loginUsuario(final String username, final String password){
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                User user = socialAppDao.comprobarEmailPassUser(email, password);
+                User user = socialAppDao.comprobarUsernamePassUser(username, password);
 
                 if (user == null){
                     estadoDelLogin.postValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);
@@ -123,24 +133,24 @@ public class SocialAppViewModel extends AndroidViewModel {
         });
     }
 
-    public void getUserPhoto(final int userId){
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                User user = socialAppDao.comprobarUserAndPhoto(userId);
-
-                estadoGetUsuario.postValue(EstadoDelGetUsuario.INITIAL);
-
-                if (user == null){
-                    estadoGetUsuario.postValue(EstadoDelGetUsuario.NOEXISTE);
-                    Log.e("ABCD", "User not exist! " + userId);
-                }
-                else {
-                    estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
-                    usuarioRecicler.postValue(user);
-                }
-
-            }
-        });
-    }
+//    public void getUserPhoto(final int userId){
+//        AsyncTask.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                User user = socialAppDao.comprobarUserAndPhoto(userId);
+//
+//                estadoGetUsuario.postValue(EstadoDelGetUsuario.INITIAL);
+//
+//                if (user == null){
+//                    estadoGetUsuario.postValue(EstadoDelGetUsuario.NOEXISTE);
+//                    Log.e("ABCD", "User not exist! " + userId);
+//                }
+//                else {
+//                    estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
+//                    usuarioRecicler.postValue(user);
+//                }
+//
+//            }
+//        });
+//    }
 }

@@ -55,7 +55,7 @@ public class AccountFragment extends Fragment {
                     navController.navigate(R.id.navigation_login);
                 } else {
                     mostrarPerfil(user);
-                    socialAppViewModel.username = username.getText().toString();
+
                 }
             }
         });

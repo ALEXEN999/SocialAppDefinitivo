@@ -64,32 +64,32 @@ public class DetallePublicationFragment extends Fragment {
             @Override
             public void onChanged(final Publication publication) {
                 if(publication == null) return;
-                //Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
-                username.setText(publication.usernameAccount);
+                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
+                username.setText(publication.user);
                 ubication.setText(publication.ubication);
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
-                socialAppViewModel.estadoGetUsuario.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelGetUsuario> (){
-
-                    @Override
-                    public void onChanged(SocialAppViewModel.EstadoDelGetUsuario estadoDelGetUsuario) {
-                        switch (estadoDelGetUsuario){
-                            case NOEXISTE:
-                                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
-                                Log.e("ABCD", "sin photo.");
-                                break;
-                            case ENCONTRADO:
-                                Glide.with(requireActivity()).load(Uri.parse(socialAppViewModel.usuarioRecicler.getValue().urlFoto)).into(accountImage);
-                                Log.e("ABCD", socialAppViewModel.usuarioRecicler.getValue().urlFoto);
-                                break;
-                            default:
-                                Log.e("ABCD", estadoDelGetUsuario.name());
-                                break;
-
-                        }
-                    }
-                });
+//                socialAppViewModel.estadoGetUsuario.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelGetUsuario> (){
+//
+//                    @Override
+//                    public void onChanged(SocialAppViewModel.EstadoDelGetUsuario estadoDelGetUsuario) {
+//                        switch (estadoDelGetUsuario){
+//                            case NOEXISTE:
+//                                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
+//                                Log.e("ABCD", "sin photo.");
+//                                break;
+//                            case ENCONTRADO:
+//                                Glide.with(requireActivity()).load(Uri.parse(socialAppViewModel.usuarioRecicler.getValue().urlFoto)).into(accountImage);
+//                                Log.e("ABCD", socialAppViewModel.usuarioRecicler.getValue().urlFoto);
+//                                break;
+//                            default:
+//                                Log.e("ABCD", estadoDelGetUsuario.name());
+//                                break;
+//
+//                        }
+//                    }
+//                });
 
 
                 likeButton.setOnClickListener(new View.OnClickListener() {

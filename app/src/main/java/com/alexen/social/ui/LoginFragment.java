@@ -1,6 +1,7 @@
 package com.alexen.social.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,10 @@ public class LoginFragment extends Fragment {
 
     Button buttonIniciarSesion;
     Button buttonRegistrar;
-    EditText emailEdit;
+    EditText userEdit;
     EditText passwordEdit;
 
-    String email;
+    String user;
     String password;
     SocialAppViewModel socialAppViewModel;
     NavController navController;
@@ -46,7 +47,7 @@ public class LoginFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
         navController = Navigation.findNavController(view);
         // Initialize Firebase Auth
-        emailEdit = view.findViewById(R.id.editTextUsername);
+        userEdit = view.findViewById(R.id.editTextUsername);
         passwordEdit = view.findViewById(R.id.editTextPassword);
         buttonIniciarSesion = view.findViewById(R.id.buttonIniciarSesion);
         buttonRegistrar = view.findViewById(R.id.buttonIniciarRegistro);
@@ -54,16 +55,17 @@ public class LoginFragment extends Fragment {
         buttonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = emailEdit.getText().toString();
+                user = userEdit.getText().toString();
                 password = passwordEdit.getText().toString();
                 socialAppViewModel.resetearEstadoUsuario();
-                socialAppViewModel.loginUsuario(email, password);
+                socialAppViewModel.loginUsuario(user, password);
                 socialAppViewModel.estadoDelLogin.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelLogin>() {
                     @Override
                     public void onChanged(SocialAppViewModel.EstadoDelLogin estadoDelLogin) {
                         switch (estadoDelLogin){
                             case LOGIN_COMPLETADO:
-
+                                socialAppViewModel.username = user;
+                                Log.e("EFGH",user + " "+ socialAppViewModel.username);
                                 navController.navigate(R.id.navigation_accountT);
                                 break;
                             case EMAIL_NO_DISPONIBLE:

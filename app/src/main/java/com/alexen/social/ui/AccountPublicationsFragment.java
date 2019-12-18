@@ -74,7 +74,7 @@ public class AccountPublicationsFragment extends Fragment {
 
             final Publication publication = publications.get(position);
             holder.tituloTextView.setText(publication.coment);
-            socialAppViewModel.getUserPhoto(publication.usernameAccount);
+//            socialAppViewModel.getUserPhoto(publication.usernameAccount);
 
 
             // GLIDE
