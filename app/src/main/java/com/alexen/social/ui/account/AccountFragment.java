@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.alexen.social.manage.Entity.User;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.R;
+import com.alexen.social.ui.AccountDescriptionsFragment;
 import com.alexen.social.ui.AccountPublicationsFragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;

@@ -29,7 +29,7 @@
             android:inputType="text"
             android:importantForAutofill="no"
             android:layout_margin="10dp"
-            android:text="admin@gmail.com"/>
+            android:text="admin"/>
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"

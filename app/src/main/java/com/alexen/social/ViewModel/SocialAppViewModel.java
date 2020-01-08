@@ -132,25 +132,4 @@ public class SocialAppViewModel extends AndroidViewModel {
             }
         });
     }
-
-//    public void getUserPhoto(final int userId){
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                User user = socialAppDao.comprobarUserAndPhoto(userId);
-//
-//                estadoGetUsuario.postValue(EstadoDelGetUsuario.INITIAL);
-//
-//                if (user == null){
-//                    estadoGetUsuario.postValue(EstadoDelGetUsuario.NOEXISTE);
-//                    Log.e("ABCD", "User not exist! " + userId);
-//                }
-//                else {
-//                    estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
-//                    usuarioRecicler.postValue(user);
-//                }
-//
-//            }
-//        });
-//    }
 }

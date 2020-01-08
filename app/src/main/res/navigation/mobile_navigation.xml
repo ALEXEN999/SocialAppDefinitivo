@@ -6,10 +6,6 @@
     app:startDestination="@id/navigation_login">
 
     <fragment
-        android:id="@+id/navigation_account_descripcion"
-        android:name="com.alexen.social.ui.account.AccountDescriptionsFragment"
-        android:label="@string/title_account" />
-    <fragment
         android:id="@+id/navigation_home"
         android:name="com.alexen.social.ui.HomeFragment"
         android:label="@string/title_home"
@@ -60,4 +56,14 @@
         android:name="com.alexen.social.DetallePublicationFragment"
         android:label="fragment_detalle_publication"
         tools:layout="@layout/fragment_detalle_publication" />
+    <fragment
+        android:id="@+id/navigation_descriptionFragment"
+        android:name="com.alexen.social.ui.AccountDescriptionsFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_account_descriptions" />
+    <fragment
+        android:id="@+id/editarDescripcionFragment"
+        android:name="com.alexen.social.EditarDescripcionFragment"
+        android:label="fragment_editar_descripcion"
+        tools:layout="@layout/fragment_editar_descripcion" />
 </navigation>

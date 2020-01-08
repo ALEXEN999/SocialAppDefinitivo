@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditarDescripcionFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewEditarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/editarperfil"
+            android:textSize="36sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="8dp"/>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imageViewAccountPhoto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_account_circle_black_24dp"
+            android:contentDescription="@string/accountphoto"
+            android:scaleType="centerCrop"
+            app:civ_border_color="@color/colorAccent"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/textViewUsernameProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/username" />
+        <EditText
+            android:id="@+id/editTextUsernameProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="@string/username"
+            tools:targetApi="o"
+            tools:ignore="LabelFor" />
+        <TextView
+            android:id="@+id/textViewDescriptionProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion" />
+        <EditText
+            android:id="@+id/editTextDescriptionProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="@string/description"
+            tools:targetApi="o"
+            tools:ignore="LabelFor" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
