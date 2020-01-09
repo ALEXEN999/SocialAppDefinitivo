@@ -45,6 +45,10 @@ public class SocialAppViewModel extends AndroidViewModel {
     public String username;
     public String password;
 
+
+    public String usernametmp;
+    public String descriptiontmp;
+
     public MutableLiveData<User> usuarioLogeado = new MutableLiveData<>();
     public MutableLiveData<User> usuarioRecicler= new MutableLiveData<>();
 
@@ -115,6 +119,18 @@ public class SocialAppViewModel extends AndroidViewModel {
 
             }
         });
+    }
+
+    public void editarUser(final String username, final String descripcion, final String anteriorUsername, final String anteriorDescripcion){
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+//                socialAppDao.editarUser(username,anteriorUsername,descripcion,anteriorDescripcion);
+                estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
+
+            }
+        });
+
     }
 
     public void loginUsuario(final String username, final String password){

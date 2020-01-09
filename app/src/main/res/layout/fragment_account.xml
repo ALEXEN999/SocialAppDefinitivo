@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/username"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:textColor="#D5FFFFFF"
+        android:background="#66BB6A"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,12 +57,15 @@
             android:id="@+id/imageViewAccountPhoto"
             android:layout_width="0dp"
             android:layout_height="150dp"
+            android:layout_margin="16dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_account_circle_black_24dp"
             android:contentDescription="@string/accountphoto"
             android:scaleType="centerCrop"
-            app:civ_border_color="@color/colorAccent"
-            android:layout_margin="16dp"/>
+            android:src="@drawable/ic_account_circle_black_24dp"
+            app:civ_border_color="#66BB6A"
+            app:civ_border_color_end="@color/cardview_shadow_end_color"
+            app:civ_border_color_direction="top_to_bottom"
+            tools:ignore="PrivateResource" />
 
         <LinearLayout
             android:layout_width="114dp"
@@ -99,7 +104,9 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="#66BB6A"
+            app:tabTextColor="#D5FFFFFF"/>
 
     </androidx.viewpager.widget.ViewPager>
 

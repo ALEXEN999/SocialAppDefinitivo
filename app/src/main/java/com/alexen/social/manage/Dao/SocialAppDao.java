@@ -3,6 +3,7 @@ package com.alexen.social.manage.Dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.alexen.social.manage.Entity.User;
 
@@ -23,6 +24,10 @@ public abstract class SocialAppDao {
 
     @Query("SELECT * FROM User WHERE username = :username AND password = :password")
     public abstract User comprobarUsernamePassUser(String username, String password);
+
+//    @Update
+//    public abstract User editarUser(User user);
+
 
 //    @Query("SELECT username, urlFoto FROM User WHERE User.id = :userId")
 //    public abstract User comprobarUserAndPhoto(int userId);
