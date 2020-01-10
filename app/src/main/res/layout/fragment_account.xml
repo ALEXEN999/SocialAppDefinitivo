@@ -98,21 +98,21 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="202dp">
+        android:layout_height="423dp"
+        android:layout_gravity="bottom">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicator = "@drawable/background_tab_indicator_dot_blue"
-        app:tabBackground = "@drawable/background_amber_dot_3dp"
-        app:tabIndicatorColor = "#90FFFFFF"
-        app:tabIndicatorGravity = "bottom"
-        app:tabTextColor="#90FFFFFF"
-        app:tabSelectedTextColor="#FFFFFF"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@drawable/background_amber_dot_3dp"
+            app:tabGravity="center"
+            app:tabIndicator="@drawable/background_tab_indicator_dot_blue"
+            app:tabIndicatorColor="#90FFFFFF"
+            app:tabIndicatorGravity="bottom"
+            app:tabSelectedTextColor="#FFFFFF"
 
-        app:tabGravity = "center" />
+            app:tabTextColor="#90FFFFFF" />
 
     </androidx.viewpager.widget.ViewPager>
 
