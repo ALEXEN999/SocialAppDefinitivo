@@ -101,14 +101,19 @@
         android:layout_height="wrap_content"
         android:paddingTop="202dp">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#66BB6A"
-            app:tabTextColor="#D5FFFFFF"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicator = "@drawable/background_tab_indicator_dot_blue"
+        app:tabBackground = "@drawable/background_amber_dot_3dp"
+        app:tabIndicatorColor = "#90FFFFFF"
+        app:tabIndicatorGravity = "bottom"
+        app:tabTextColor="#90FFFFFF"
+        app:tabSelectedTextColor="#FFFFFF"
+
+        app:tabGravity = "center" />
 
     </androidx.viewpager.widget.ViewPager>
-
 
 </FrameLayout>
