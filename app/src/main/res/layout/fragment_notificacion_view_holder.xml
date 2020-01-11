@@ -17,7 +17,7 @@
         app:civ_border_color="#66BB6A"
         app:civ_border_color_direction="top_to_bottom"
         app:civ_border_color_end="@color/cardview_shadow_end_color"
-        app:civ_border_width="4dp"
+        app:civ_border_width="2dp"
         tools:ignore="PrivateResource" />
 
 
@@ -51,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/_0h"
+        android:textColor="#B0858585"
         android:gravity="right|center"
         android:paddingRight="16sp"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
