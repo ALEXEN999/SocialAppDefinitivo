@@ -2,7 +2,7 @@
     <string name="app_name">SocialApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Notificaciones</string>
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="login">Login</string>
@@ -40,5 +40,7 @@
     <string name="description">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum, venenatis habitasse sollicitudin magnis donec faucibus porttitor potenti eu, magna luctus aenean urna varius scelerisque a.</string>
     <string name="descripcion">descripcion</string>
     <string name="guardar_cambios">Guardar Cambios</string>
+    <string name="image_account">image Account</string>
+    <string name="_0h">0h</string>
 
 </resources>

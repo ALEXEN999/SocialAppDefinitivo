@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.alexen.social.ui.NotificationsFragment"
+        android:name="com.alexen.social.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
@@ -66,4 +66,14 @@
         android:name="com.alexen.social.EditarDescripcionFragment"
         android:label="fragment_editar_descripcion"
         tools:layout="@layout/fragment_editar_descripcion" />
+    <fragment
+        android:id="@+id/listaNotificacionesFragment"
+        android:name="com.alexen.social.ListaNotificacionesFragment"
+        android:label="fragment_lista_notificaciones"
+        tools:layout="@layout/fragment_lista_notificaciones" />
+    <fragment
+        android:id="@+id/notificacionViewHolder"
+        android:name="com.alexen.social.NotificacionViewHolder"
+        android:label="fragment_notificacion_view_holder"
+        tools:layout="@layout/fragment_notificacion_view_holder" />
 </navigation>
