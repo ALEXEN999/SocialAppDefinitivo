@@ -65,7 +65,7 @@ public class DetallePublicationFragment extends Fragment {
             public void onChanged(final Publication publication) {
                 if(publication == null) return;
                 Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
-                username.setText(publication.user);
+                username.setText(socialAppViewModel.usernametmp);
                 ubication.setText(publication.ubication);
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));

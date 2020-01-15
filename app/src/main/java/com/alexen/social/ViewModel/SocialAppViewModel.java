@@ -78,9 +78,7 @@ public class SocialAppViewModel extends AndroidViewModel {
                     publication.coment = "COMMMENT  " + i;
                     publication.urlPublicationSource = "drawable-v24/image.png";
         //          publication.urlAccountImage = datosUser.urlFoto;
-                    if (username !=null)publication.user = socialAppViewModel.username;
-
-                    Log.e("ABCD",publication.user + " "+ username);
+                    publication.user = usernametmp;
 
                     publication.likes=0;
                     publication.dislike=0;
@@ -108,6 +106,7 @@ public class SocialAppViewModel extends AndroidViewModel {
             public void run() {
                 User user = socialAppDao.comprobarUserName(username);
                 User datosEmailUser = socialAppDao.comprobarEmailUser(email);
+                usernametmp = username;
 
                 if (user == null && datosEmailUser == null){
                     socialAppDao.insertarUser(new User(username, email, password,urlFoto));
@@ -138,7 +137,7 @@ public class SocialAppViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 User user = socialAppDao.comprobarUsernamePassUser(username, password);
-
+                usernametmp = username;
                 if (user == null){
                     estadoDelLogin.postValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);
                 } else {
