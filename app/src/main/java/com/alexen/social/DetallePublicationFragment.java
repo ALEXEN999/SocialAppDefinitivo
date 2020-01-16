@@ -95,17 +95,15 @@ public class DetallePublicationFragment extends Fragment {
                 likeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        likeC += 1;
-                        publication.likes=likeC;
-                        likes.setText(String.valueOf(likeC));
+                        publication.likes+=1;
+                        likes.setText(String.valueOf(publication.likes));
                     }
                 });
                 dislikeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dislikeC += 1;
-                        publication.dislike = dislikeC;
-                        disklike.setText(String.valueOf(dislikeC));
+                        publication.dislike += 1;
+                        disklike.setText(String.valueOf(publication.dislike));
                     }
                 });
             }

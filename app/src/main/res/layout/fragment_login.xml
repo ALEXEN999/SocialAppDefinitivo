@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/wallpaper">
 
 
         <TextView
@@ -19,7 +20,8 @@
             android:text="@string/login"
             android:textSize="36sp"
             android:gravity="center"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:textColor="#D5FFFFFF"/>
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -29,7 +31,8 @@
             android:inputType="text"
             android:importantForAutofill="no"
             android:layout_margin="10dp"
-            android:text="admin"/>
+            android:text="admin"
+            android:textColor="#ffffff"/>
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
@@ -38,7 +41,8 @@
             android:inputType="textPassword"
             android:layout_margin="10dp"
             android:importantForAutofill="no"
-            android:text="admin"/>
+            android:text="admin"
+            android:textColor="#ffffff"/>
 
         <Button
             android:id="@+id/buttonIniciarSesion"
@@ -50,7 +54,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewPreguntaRegistro"
-            android:text="@string/no_tienes_cuenta_de_socialapp"/>
+            android:text="@string/no_tienes_cuenta_de_socialapp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_margin="20dp"/>
         <Button
             android:id="@+id/buttonIniciarRegistro"
             android:layout_width="match_parent"
