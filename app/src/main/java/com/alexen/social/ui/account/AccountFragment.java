@@ -71,10 +71,12 @@ public class AccountFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager, true);
 
+
     }
 
     private void mostrarPerfil(User user) {
         username.setText(String.valueOf(user.username));
+        socialAppViewModel.imgAccount = user.urlFoto;
         Glide.with(requireActivity()).load(Uri.parse(user.urlFoto)).into(imageView);
 
     }

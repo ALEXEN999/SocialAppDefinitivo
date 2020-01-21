@@ -85,6 +85,7 @@ public class LoginFragment extends Fragment {
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Navigation.findNavController(requireView()).navigate(R.id.navigation_Register);
 
             }

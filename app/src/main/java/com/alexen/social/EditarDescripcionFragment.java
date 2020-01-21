@@ -50,7 +50,7 @@ public class EditarDescripcionFragment extends Fragment {
         guardarCambiosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                socialAppViewModel.editarUser(usernameEditText.getText().toString(),descripcionEditText.getText().toString(), socialAppViewModel.usernametmp,socialAppViewModel.descriptiontmp);
+//                socialAppViewModel.editarUser(usernameEditText.getText().toString(),descripcionEditText.getText().toString(), socialAppViewModel.usernametmp,socialAppViewModel.descriptiontmp);
                 navController.navigate(R.id.navigation_accountT);
             }
         });

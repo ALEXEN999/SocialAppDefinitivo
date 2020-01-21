@@ -48,7 +48,7 @@ public class SocialAppViewModel extends AndroidViewModel {
 
     public String usernametmp;
     public String descriptiontmp;
-
+    public String imgAccount;
     public MutableLiveData<User> usuarioLogeado = new MutableLiveData<>();
     public MutableLiveData<User> usuarioRecicler= new MutableLiveData<>();
 
@@ -77,7 +77,7 @@ public class SocialAppViewModel extends AndroidViewModel {
                     Publication publication = new Publication();
                     publication.coment = "COMMMENT  " + i;
                     publication.urlPublicationSource = "drawable-v24/image.png";
-        //          publication.urlAccountImage = datosUser.urlFoto;
+                    publication.urlAccountImage = "drawable-v24/image.png";
                     publication.user = usernametmp;
 
                     publication.likes=0;
@@ -120,23 +120,24 @@ public class SocialAppViewModel extends AndroidViewModel {
         });
     }
 
-    public void editarUser(final String username, final String descripcion, final String anteriorUsername, final String anteriorDescripcion){
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-//                socialAppDao.editarUser(username,anteriorUsername,descripcion,anteriorDescripcion);
-                estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
-
-            }
-        });
-
-    }
+//    public void editarUser(final String username, final String descripcion, final String anteriorUsername, final String anteriorDescripcion){
+//        AsyncTask.execute(new Runnable() {
+//            @Override
+//            public void run() {
+////                socialAppDao.editarUser(username,anteriorUsername,descripcion,anteriorDescripcion);
+//                estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
+//
+//            }
+//        });
+//
+//    }
 
     public void loginUsuario(final String username, final String password){
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 User user = socialAppDao.comprobarUsernamePassUser(username, password);
+                imgAccount = user.urlFoto;
                 usernametmp = username;
                 if (user == null){
                     estadoDelLogin.postValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);

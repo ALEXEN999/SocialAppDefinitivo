@@ -17,6 +17,7 @@ public class Publication {
     public int likes;
     public int dislike;
     public String urlPublicationSource;
+    public String urlAccountImage;
     public int userId;
     public String user;
 
