@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".DetallePublicationFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -18,13 +18,18 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/userNamePublicationImageView"
-                android:layout_width="64dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:contentDescription="@string/imagepublicationaccount"
-                tools:src="@tools:sample/avatars" />
+                android:layout_width="80dp"
+                android:layout_height="43dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/accountphoto"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_account_circle_black_24dp"
+                app:civ_border_color="#66BB6A"
+                app:civ_border_color_direction="top_to_bottom"
+                app:civ_border_color_end="@color/cardview_shadow_end_color"
+                tools:ignore="PrivateResource" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,9 +64,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp">
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/buttonLikeImageButton"
@@ -69,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/buttonlike"
-                android:src="@drawable/ic_like_black_24dp"/>
+                android:src="@drawable/ic_like_black_24dp" />
 
             <ImageButton
                 android:id="@+id/buttonDislikeImageButton"
@@ -83,44 +88,53 @@
                 android:id="@+id/reactionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:text="@string/esta_publicacion_tiene" />
 
             <TextView
                 android:id="@+id/countLikeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:text="@string/contador_likes" />
 
             <TextView
                 android:id="@+id/titleLikeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:text="@string/like_title" />
 
             <TextView
                 android:id="@+id/countDislikeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:text="@string/contador_dislike" />
 
             <TextView
                 android:id="@+id/titleDisikeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:text="@string/disike_title" />
+
         </LinearLayout>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

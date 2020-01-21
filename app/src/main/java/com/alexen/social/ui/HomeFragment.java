@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(@NonNull final PublicationDetalleAdapter.PublicationDetalleViewHolder holder, final int position) {
 
             final Publication publication = publications.get(position);
-            Glide.with(requireActivity()).load(R.drawable.image).into(holder.accountImage);
+            Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(holder.accountImage);
             holder.username.setText(socialAppViewModel.usernametmp);
             holder.ubication.setText(publication.ubication);
             Glide.with(requireActivity()).load(R.drawable.image).into(holder.publicationSource);

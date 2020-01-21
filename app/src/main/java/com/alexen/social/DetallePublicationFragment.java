@@ -64,7 +64,7 @@ public class DetallePublicationFragment extends Fragment {
             @Override
             public void onChanged(final Publication publication) {
                 if(publication == null) return;
-                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
+                Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(accountImage);
                 username.setText(socialAppViewModel.usernametmp);
                 ubication.setText(publication.ubication);
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
