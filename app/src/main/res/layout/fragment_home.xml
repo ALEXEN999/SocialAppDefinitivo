@@ -32,11 +32,11 @@
                 android:textSize="36sp" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/imageButtonElegirPost"
                 android:layout_width="46dp"
                 android:layout_height="34dp"
                 android:layout_gravity="right"
-                android:layout_margin="10dp"
+                android:layout_marginTop="7dp"
                 android:background="#66BB6A"
                 android:contentDescription="@string/subir_foto"
                 app:srcCompat="@drawable/ic_camera_alt_black_24dp"

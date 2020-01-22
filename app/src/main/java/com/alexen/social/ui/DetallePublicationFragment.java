@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui;
 
 
 import android.net.Uri;
@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;

@@ -43,6 +43,17 @@ public class HomeFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
         navController = Navigation.findNavController(view);
 
+        imageButton = view.findViewById(R.id.imageButtonElegirPost);
+
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.subirPostFragment);
+            }
+        });
+
+
         final PublicationDetalleAdapter publicationDetalleAdapter;
 
         RecyclerView publicationDetalleRecyclerView = view.findViewById(R.id.publicationDetalleList);

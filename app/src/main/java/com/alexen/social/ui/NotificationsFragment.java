@@ -1,4 +1,4 @@
-package com.alexen.social;
+package com.alexen.social.ui;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alexen.social.R;
 import com.alexen.social.ViewModel.NotificacionViewModel;
 import com.alexen.social.manage.Entity.Notificacion;
 import com.bumptech.glide.Glide;

@@ -42,5 +42,8 @@
     <string name="guardar_cambios">Guardar Cambios</string>
     <string name="image_account">image Account</string>
     <string name="_0h">0h</string>
+    <string name="publicar">Publicar</string>
+    <string name="return_to_home">return_to_home</string>
+    <string name="push_post">push_post</string>
 
 </resources>

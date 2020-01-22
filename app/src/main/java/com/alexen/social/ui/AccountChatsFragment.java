@@ -1,4 +1,4 @@
-package com.alexen.social.ui.account;
+package com.alexen.social.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
