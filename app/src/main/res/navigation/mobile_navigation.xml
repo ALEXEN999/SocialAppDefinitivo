@@ -81,4 +81,9 @@
         android:name="com.alexen.social.ui.SubirPostFragment"
         android:label="fragment_subir_post"
         tools:layout="@layout/fragment_subir_post" />
+    <fragment
+        android:id="@+id/previewPostFragment"
+        android:name="com.alexen.social.ui.PreviewPostFragment"
+        android:label="fragment_preview_post"
+        tools:layout="@layout/fragment_preview_post" />
 </navigation>
