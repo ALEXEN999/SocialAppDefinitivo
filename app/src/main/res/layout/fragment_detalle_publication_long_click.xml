@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.DetallePublicationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/userNamePublicationImageView"
+                android:layout_width="80dp"
+                android:layout_height="43dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/accountphoto"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_account_circle_black_24dp"
+                app:civ_border_color="#66BB6A"
+                app:civ_border_color_direction="top_to_bottom"
+                app:civ_border_color_end="@color/cardview_shadow_end_color"
+                tools:ignore="PrivateResource" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userNametextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/usernamePublication"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:contentDescription="@string/location"
+                        android:src="@drawable/ic_location_on_black_24dp"
+                        android:layout_marginTop="3dp"/>
+
+                    <TextView
+                        android:id="@+id/ubicationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="@string/ubication"
+                        android:textColor="#929292" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/publicationImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imagepublication"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_background"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

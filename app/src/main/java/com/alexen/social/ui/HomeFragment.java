@@ -127,7 +127,7 @@ public class HomeFragment extends Fragment {
             int likeC = 0, dislikeC = 0;
             public PublicationDetalleViewHolder(@NonNull View itemView) {
                 super(itemView);
-                coment = itemView.findViewById(R.id.textView_coment);
+//                coment = itemView.findViewById(R.id.textView_coment);
                 ubication = itemView.findViewById(R.id.ubicationTextView);
                 username = itemView.findViewById(R.id.userNametextView);
                 likes = itemView.findViewById(R.id.countLikeTextView);

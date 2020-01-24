@@ -1,7 +1,10 @@
 package com.alexen.social.ui;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -73,7 +76,7 @@ public class AccountPublicationsFragment extends Fragment {
         public void onBindViewHolder(@NonNull PublicationViewHolder holder, final int position) {
 
             final Publication publication = publications.get(position);
-            holder.tituloTextView.setText(publication.coment);
+//            holder.tituloTextView.setText(publication.coment);
 //            socialAppViewModel.getUserPhoto(publication.usernameAccount);
 
 
@@ -86,6 +89,20 @@ public class AccountPublicationsFragment extends Fragment {
                     socialAppViewModel.establecerPublicacionSeleccionado(publication);
                     navController.navigate(R.id.navigation_detallePublicationFragment);
                     // navController.navigate(  detalle   );
+                }
+            });
+
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @SuppressLint("NewApi")
+                @Override
+                public boolean onLongClick(View v) {
+                    new AlertDialog.Builder(requireContext()).setTitle("\t\tPreview Post")
+                            .setMessage("\tNo sabia muy bien como hacer esto, pero esto sería la preview de la foto, como la que hay a la izquierda.      ")
+                            .setIcon(R.drawable.image)
+                            .setCancelable(true)
+                            .create()
+                            .show();
+                    return false;
                 }
             });
         }
@@ -106,7 +123,6 @@ public class AccountPublicationsFragment extends Fragment {
 
             public PublicationViewHolder(@NonNull View itemView) {
                 super(itemView);
-                tituloTextView = itemView.findViewById(R.id.textView_coment);
                 fotoImageView = itemView.findViewById(R.id.imageView_foto);
             }
         }

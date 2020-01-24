@@ -56,7 +56,7 @@ public class DetallePublicationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
-        coment = view.findViewById(R.id.textView_coment);
+//        coment = view.findViewById(R.id.textView_coment);
         ubication = view.findViewById(R.id.ubicationTextView);
         username = view.findViewById(R.id.userNametextView);
         likes = view.findViewById(R.id.countLikeTextView);

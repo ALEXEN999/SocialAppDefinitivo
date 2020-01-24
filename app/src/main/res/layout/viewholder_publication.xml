@@ -16,9 +16,4 @@
         tools:ignore="VectorDrawableCompat"
         android:contentDescription="@string/publicationimage" />
 
-    <TextView
-        android:id="@+id/textView_coment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_de_ejemplo" />
 </LinearLayout>
