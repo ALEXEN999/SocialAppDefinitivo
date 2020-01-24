@@ -25,6 +25,7 @@ import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 
 
 /**
@@ -34,8 +35,9 @@ public class DetallePublicationFragment extends Fragment {
 
     SocialAppViewModel socialAppViewModel;
     TextView coment, ubication,username,likes,disklike;
-    ImageView publicationSource, accountImage;
+    ImageView accountImage;
     ImageButton likeButton, dislikeButton;
+    PhotoView publicationSource;
     int likeC = 0, dislikeC = 0;
     User user;
 
@@ -59,6 +61,7 @@ public class DetallePublicationFragment extends Fragment {
         username = view.findViewById(R.id.userNametextView);
         likes = view.findViewById(R.id.countLikeTextView);
         disklike = view.findViewById(R.id.countDislikeTextView);
+
         publicationSource = view.findViewById(R.id.publicationImageView);
         accountImage = view.findViewById(R.id.userNamePublicationImageView);
         dislikeButton = view.findViewById(R.id.buttonDislikeImageButton);

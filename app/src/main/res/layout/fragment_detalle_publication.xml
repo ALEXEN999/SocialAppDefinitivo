@@ -70,13 +70,15 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
+
+        <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/publicationImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/imagepublication"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_launcher_background"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -23,11 +23,7 @@ import androidx.navigation.Navigation;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.ui.MainActivity;
 import com.alexen.social.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 import static android.content.ContentValues.TAG;
 import static com.alexen.social.ViewModel.SocialAppViewModel.*;
