@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -36,6 +38,7 @@ public class DetallePublicationFragment extends Fragment {
     ImageButton likeButton, dislikeButton;
     int likeC = 0, dislikeC = 0;
     User user;
+
     public DetallePublicationFragment() {
         // Required empty public constructor
     }
@@ -71,27 +74,6 @@ public class DetallePublicationFragment extends Fragment {
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
-//                socialAppViewModel.estadoGetUsuario.observe(getViewLifecycleOwner(), new Observer<SocialAppViewModel.EstadoDelGetUsuario> (){
-//
-//                    @Override
-//                    public void onChanged(SocialAppViewModel.EstadoDelGetUsuario estadoDelGetUsuario) {
-//                        switch (estadoDelGetUsuario){
-//                            case NOEXISTE:
-//                                Glide.with(requireActivity()).load(R.drawable.image).into(accountImage);
-//                                Log.e("ABCD", "sin photo.");
-//                                break;
-//                            case ENCONTRADO:
-//                                Glide.with(requireActivity()).load(Uri.parse(socialAppViewModel.usuarioRecicler.getValue().urlFoto)).into(accountImage);
-//                                Log.e("ABCD", socialAppViewModel.usuarioRecicler.getValue().urlFoto);
-//                                break;
-//                            default:
-//                                Log.e("ABCD", estadoDelGetUsuario.name());
-//                                break;
-//
-//                        }
-//                    }
-//                });
-
 
                 likeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -110,7 +92,7 @@ public class DetallePublicationFragment extends Fragment {
             }
         });
 
-
-
     }
+
+
 }

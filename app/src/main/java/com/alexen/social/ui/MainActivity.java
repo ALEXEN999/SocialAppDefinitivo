@@ -3,6 +3,8 @@ package com.alexen.social.ui;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 
 import com.alexen.social.R;
@@ -20,7 +22,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-
     private final int PICKER =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
