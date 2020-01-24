@@ -8,82 +8,66 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.alexen.social.ui.HomeFragment"
-        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_accountT"
         android:name="com.alexen.social.ui.AccountFragment"
-        android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.alexen.social.ui.NotificationsFragment"
-        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_login"
         android:name="com.alexen.social.ui.LoginFragment"
-        android:label="Login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/navigation_Register"
         android:name="com.alexen.social.ui.RegisterFragment"
-        android:label="Register"
         tools:layout="@layout/fragment_register" />
     <fragment
         android:id="@+id/navigation_User"
         android:name="com.alexen.social.ui.UserFragment"
-        android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/navigation_account_chats"
-        android:name="com.alexen.social.ui.AccountChatsFragment"
-        android:label="@string/title_account" />
+        android:name="com.alexen.social.ui.AccountChatsFragment" />
     <fragment
         android:id="@+id/navigation_configuration"
         android:name="com.alexen.social.navigation_configuration"
-        android:label="fragment_configuration"
         tools:layout="@layout/fragment_configuration" />
     <fragment
         android:id="@+id/navigation_account_PublicationsFragment"
         android:name="com.alexen.social.ui.AccountPublicationsFragment"
-        android:label="fragment_account_publications"
         tools:layout="@layout/fragment_account_publications" />
     <fragment
         android:id="@+id/navigation_detallePublicationFragment"
         android:name="com.alexen.social.ui.DetallePublicationFragment"
-        android:label="fragment_detalle_publication"
         tools:layout="@layout/fragment_detalle_publication" />
     <fragment
         android:id="@+id/navigation_descriptionFragment"
         android:name="com.alexen.social.ui.AccountDescriptionsFragment"
-        android:label="fragment_description"
         tools:layout="@layout/fragment_account_descriptions" />
     <fragment
         android:id="@+id/editarDescripcionFragment"
         android:name="com.alexen.social.ui.EditarDescripcionFragment"
-        android:label="fragment_editar_descripcion"
         tools:layout="@layout/fragment_editar_descripcion" />
     <fragment
         android:id="@+id/listaNotificacionesFragment"
         android:name="com.alexen.social.ListaNotificacionesFragment"
-        android:label="fragment_lista_notificaciones"
         tools:layout="@layout/fragment_lista_notificaciones" />
     <fragment
         android:id="@+id/notificacionViewHolder"
         android:name="com.alexen.social.NotificacionViewHolder"
-        android:label="fragment_notificacion_view_holder"
         tools:layout="@layout/fragment_notificacion_view_holder" />
     <fragment
         android:id="@+id/subirPostFragment"
         android:name="com.alexen.social.ui.SubirPostFragment"
-        android:label="fragment_subir_post"
         tools:layout="@layout/fragment_subir_post" />
     <fragment
         android:id="@+id/previewPostFragment"
         android:name="com.alexen.social.ui.PreviewPostFragment"
-        android:label="fragment_preview_post"
         tools:layout="@layout/fragment_preview_post" />
 </navigation>

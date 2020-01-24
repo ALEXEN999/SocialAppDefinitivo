@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -43,8 +44,6 @@ public class AccountFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
         imageView = view.findViewById(R.id.imageViewAccountPhoto);
-
-
         username = view.findViewById(R.id.textViewUsername);
 
         socialAppViewModel.usuarioLogeado.observe(getViewLifecycleOwner(), new Observer<User>() {
