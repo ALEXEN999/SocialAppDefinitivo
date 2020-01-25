@@ -2,6 +2,9 @@ package com.alexen.social.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -27,7 +30,6 @@ import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-    ImageButton imageButton;
     SocialAppViewModel socialAppViewModel;
     NavController navController;
 
@@ -40,18 +42,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true);
+
+        navController = Navigation.findNavController(view);
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
         navController = Navigation.findNavController(view);
 
-        imageButton = view.findViewById(R.id.imageButtonElegirPost);
-
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.subirPostFragment);
-            }
-        });
 
 
         final PublicationDetalleAdapter publicationDetalleAdapter;
@@ -139,4 +135,24 @@ public class HomeFragment extends Fragment {
             }
         }
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_publication:
+                navController.navigate(R.id.subirPostFragment);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        // You can look up you menu item here and store it in a global variable by
+        // 'mMenuItem = menu.findItem(R.id.my_menu_item);'
+    }
+
 }

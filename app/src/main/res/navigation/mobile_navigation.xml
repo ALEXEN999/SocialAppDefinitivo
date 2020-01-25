@@ -8,16 +8,19 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.alexen.social.ui.HomeFragment"
+        android:label="SocialApp"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_accountT"
         android:name="com.alexen.social.ui.AccountFragment"
+        android:label="Username"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.alexen.social.ui.NotificationsFragment"
+        android:label="Notificaciones"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_login"
@@ -45,6 +48,7 @@
     <fragment
         android:id="@+id/navigation_detallePublicationFragment"
         android:name="com.alexen.social.ui.DetallePublicationFragment"
+        android:label="Publication"
         tools:layout="@layout/fragment_detalle_publication" />
     <fragment
         android:id="@+id/navigation_descriptionFragment"
@@ -53,6 +57,7 @@
     <fragment
         android:id="@+id/editarDescripcionFragment"
         android:name="com.alexen.social.ui.EditarDescripcionFragment"
+        android:label="Editar Perfil"
         tools:layout="@layout/fragment_editar_descripcion" />
     <fragment
         android:id="@+id/listaNotificacionesFragment"
@@ -65,6 +70,7 @@
     <fragment
         android:id="@+id/subirPostFragment"
         android:name="com.alexen.social.ui.SubirPostFragment"
+        android:label="Publicar"
         tools:layout="@layout/fragment_subir_post" />
     <fragment
         android:id="@+id/previewPostFragment"

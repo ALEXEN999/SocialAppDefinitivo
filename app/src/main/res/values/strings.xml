@@ -47,5 +47,6 @@
     <string name="return_to_home">return_to_home</string>
     <string name="push_post">push_post</string>
     <string name="location">location</string>
+    <string name="vacio" />
 
 </resources>
