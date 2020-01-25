@@ -21,4 +21,11 @@ public class Publication {
     public int userId;
     public String user;
 
+    public Publication(String coment, String ubication, String urlPublicationSource, String urlAccountImage, String user) {
+        this.coment = coment;
+        this.ubication = ubication;
+        this.urlPublicationSource = urlPublicationSource;
+        this.urlAccountImage = urlAccountImage;
+        this.user = user;
+    }
 }

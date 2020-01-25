@@ -5,6 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.alexen.social.manage.Entity.Publication;
 import com.alexen.social.manage.Entity.User;
 
 @Dao
@@ -12,6 +13,10 @@ public abstract class SocialAppDao {
 
     @Insert
     public abstract void insertarUser(User user);
+
+    @Insert
+    public abstract void insertarPost(Publication publication);
+
 
     @Query("SELECT * FROM User WHERE username = :username")
     public abstract User comprobarUserName(String username);

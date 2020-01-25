@@ -11,10 +11,26 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewInsertPublication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/image" />
+        <EditText
+            android:id="@+id/editTextInsertUbicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textShortMessage"
+            android:text="@string/vacio"
+            android:hint="@string/escribe_tu_ubicacion"/>
+        <EditText
+            android:id="@+id/editTextInsertComentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textLongMessage"
+            android:text="@string/vacio"
+            android:hint="@string/escribe_tu_comentario"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

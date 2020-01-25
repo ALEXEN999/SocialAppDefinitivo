@@ -14,11 +14,13 @@ import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SocialAppViewModel extends AndroidViewModel {
     SocialAppDao socialAppDao;
     SocialAppViewModel socialAppViewModel;
+
     public void resetearEstadoUsuario() {
         estadoDelLogin.setValue(EstadoDelLogin.INITIAL);
     }
@@ -28,7 +30,11 @@ public class SocialAppViewModel extends AndroidViewModel {
         NOMBRE_NO_DISPONIBLE,
         REGISTRO_COMPLETADO
     }
-
+    public enum EstadoDelPost {
+        INITAL,
+        POST_NO_PUBLICADO,
+        POST_PUBLICADO
+    }
     public enum EstadoDelLogin {
         INITIAL,
         EMAIL_NO_DISPONIBLE,
@@ -52,6 +58,7 @@ public class SocialAppViewModel extends AndroidViewModel {
     public MutableLiveData<User> usuarioLogeado = new MutableLiveData<>();
     public MutableLiveData<User> usuarioRecicler= new MutableLiveData<>();
 
+    public MutableLiveData<EstadoDelPost> estadoDelPost = new MutableLiveData<>();
 
     public MutableLiveData<EstadoDelRegistro> estadoDelRegistro = new MutableLiveData<>();
     public MutableLiveData<EstadoDelLogin> estadoDelLogin = new MutableLiveData<>();
@@ -65,32 +72,57 @@ public class SocialAppViewModel extends AndroidViewModel {
         super(application);
         socialAppDao = SocialAppDataBase.getInstance(application).socialAppDao();
 
-        rellenarListaPublication();
     }
 
-    public void rellenarListaPublication(){
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                List<Publication> publications = new ArrayList<>();
-                for (int i = 0; i < 200; i++) {
-                    Publication publication = new Publication();
-                    publication.coment = "COMMMENT  " + i;
-                    publication.urlPublicationSource = "drawable-v24/image.png";
-                    publication.urlAccountImage = "drawable-v24/image.png";
-                    publication.user = usernametmp;
+    public void insertarPost(final Publication publication){
+    AsyncTask.execute(new Runnable() {
+        @Override
+        public void run() {
+            List<Publication> publications = new ArrayList<>();
+            for (int i = 0; i < 50; i++) {
 
-                    publication.likes=0;
-                    publication.dislike=0;
-                    publication.ubication="ubication"+i;
+                socialAppDao.insertarPost(publication);
 
-                    publications.add(publication);
-                }
+                publications.add(publication);
+
                 listaPublications.postValue(publications);
             }
-        });
-
+        }
+    });
     }
+
+//    public void rellenarListaPublication(final String usernameAccount, final String comentario, final String urlPublication, final String urlAccount, final String ubication){
+//        AsyncTask.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//            boolean publicationExiste = false;
+//                List<Publication> publications = new ArrayList<>();
+//                for (int i = 0; i < 2; i++) {
+//                    Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
+//
+//                    publications.add(publication1);
+//                    socialAppDao.insertarPost(publication1);
+//                }
+//
+////                for (int i = 0; i < 5; i++) {
+////                    if (!publicationExiste){
+////                        publicationExiste = true;
+////                        Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
+////
+////                    }else if (publicationExiste){
+////                        Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
+////
+////                    }
+////                }
+//
+//
+////);
+//
+//                listaPublications.postValue(publications);
+//            }
+//        });
+//
+//    }
 
     public void establecerPublicacionSeleccionado(Publication publication){
         publicationSeleccionado.setValue(publication);
@@ -105,13 +137,11 @@ public class SocialAppViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 User user = socialAppDao.comprobarUserName(username);
-                User datosEmailUser = socialAppDao.comprobarEmailUser(email);
                 usernametmp = username;
-
-                if (user == null && datosEmailUser == null){
+                loginUsuario(email, password);
+                if (user == null){
                     socialAppDao.insertarUser(new User(username, email, password,urlFoto));
                     estadoDelRegistro.postValue(EstadoDelRegistro.REGISTRO_COMPLETADO);
-                    loginUsuario(email, password);
                 }else {
                     estadoDelRegistro.postValue(EstadoDelRegistro.NOMBRE_NO_DISPONIBLE);
                 }
@@ -119,18 +149,6 @@ public class SocialAppViewModel extends AndroidViewModel {
             }
         });
     }
-
-//    public void editarUser(final String username, final String descripcion, final String anteriorUsername, final String anteriorDescripcion){
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-////                socialAppDao.editarUser(username,anteriorUsername,descripcion,anteriorDescripcion);
-//                estadoGetUsuario.postValue(EstadoDelGetUsuario.ENCONTRADO);
-//
-//            }
-//        });
-//
-//    }
 
     public void loginUsuario(final String username, final String password){
         AsyncTask.execute(new Runnable() {

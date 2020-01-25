@@ -48,5 +48,9 @@
     <string name="push_post">push_post</string>
     <string name="location">location</string>
     <string name="vacio" />
+    <string name="escribe_tu_comentario">Escribe tu comentario...</string>
+    <string name="escribe_tu_ubicacion">escribe una ubicación</string>
+    <string name="jesus">jesus</string>
+    <string name="esta_publicacion_se_merece_un_10">Esta publicación se merece un 10.</string>
 
 </resources>

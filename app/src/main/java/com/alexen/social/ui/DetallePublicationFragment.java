@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
+import com.alexen.social.manage.Entity.Notificacion;
 import com.alexen.social.manage.Entity.User;
 import com.alexen.social.manage.Entity.Publication;
 import com.bumptech.glide.Glide;
@@ -34,12 +35,11 @@ import com.github.chrisbanes.photoview.PhotoView;
 public class DetallePublicationFragment extends Fragment {
 
     SocialAppViewModel socialAppViewModel;
-    TextView coment, ubication,username,likes,disklike;
-    ImageView accountImage;
+    TextView coment, ubication,username,likes,disklike,usernameComment,userJesus;
+    ImageView accountImage,accountImageComment;
     ImageButton likeButton, dislikeButton;
     PhotoView publicationSource;
-    int likeC = 0, dislikeC = 0;
-    User user;
+    Notificacion notificacion;
 
     public DetallePublicationFragment() {
         // Required empty public constructor
@@ -56,16 +56,22 @@ public class DetallePublicationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
-//        coment = view.findViewById(R.id.textView_coment);
+        coment = view.findViewById(R.id.textViewComentario);
         ubication = view.findViewById(R.id.ubicationTextView);
         username = view.findViewById(R.id.userNametextView);
         likes = view.findViewById(R.id.countLikeTextView);
         disklike = view.findViewById(R.id.countDislikeTextView);
+        usernameComment = view.findViewById(R.id.userNametextView2);
+        userJesus = view.findViewById(R.id.userNametextViewJesus);
+
+
+
 
         publicationSource = view.findViewById(R.id.publicationImageView);
         accountImage = view.findViewById(R.id.userNamePublicationImageView);
         dislikeButton = view.findViewById(R.id.buttonDislikeImageButton);
         likeButton = view.findViewById(R.id.buttonLikeImageButton);
+
 
         socialAppViewModel.publicationSeleccionado.observe(getViewLifecycleOwner(), new Observer<Publication>() {
             @Override
@@ -77,6 +83,7 @@ public class DetallePublicationFragment extends Fragment {
                 Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
+                coment.setText(String.valueOf(publication.coment));
 
                 likeButton.setOnClickListener(new View.OnClickListener() {
                     @Override

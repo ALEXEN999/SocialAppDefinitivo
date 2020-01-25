@@ -1,6 +1,7 @@
 package com.alexen.social.ui;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,8 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.alexen.social.R;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 
 public class SubirPostFragment extends Fragment {
@@ -39,20 +42,16 @@ public class SubirPostFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
-//
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navController.navigate(R.id.navigation_home);
-//            }
-//        });
-//
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navController.navigate(R.id.previewPostFragment);
-//            }
-//        });
+        new StyleableToast
+                .Builder(getContext())
+                .text("Esta es la foto que publicarás")
+                .textColor(Color.WHITE)
+                .textBold()
+                .stroke(5,5)
+                .cornerRadius(15)
+                .iconStart(R.drawable.jesus)
+                .backgroundColor(0xFF66BB6A)
+                .show();
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

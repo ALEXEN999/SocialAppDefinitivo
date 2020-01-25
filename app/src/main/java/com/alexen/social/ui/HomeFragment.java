@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
+import com.alexen.social.manage.Entity.Notificacion;
 import com.alexen.social.manage.Entity.Publication;
 import com.alexen.social.manage.Entity.User;
 import com.bumptech.glide.Glide;
@@ -68,7 +69,7 @@ public class HomeFragment extends Fragment {
 
     class PublicationDetalleAdapter extends RecyclerView.Adapter<PublicationDetalleAdapter.PublicationDetalleViewHolder> {
         List<Publication> publications;
-
+        Notificacion notificacion;
 
         @NonNull
         @Override
@@ -86,7 +87,10 @@ public class HomeFragment extends Fragment {
             Glide.with(requireActivity()).load(R.drawable.image).into(holder.publicationSource);
             holder.likes.setText(String.valueOf(publication.likes));
             holder.disklike.setText(String.valueOf(publication.dislike));
+            holder.coment.setText(String.valueOf(publication.coment));
+            holder.usernameComment.setText(socialAppViewModel.usernametmp);
 
+            Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(holder.accountImageComment);
             holder.likeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -117,19 +121,21 @@ public class HomeFragment extends Fragment {
 
         class PublicationDetalleViewHolder extends RecyclerView.ViewHolder {
             SocialAppViewModel socialAppViewModel;
-            TextView coment, ubication,username,likes,disklike;
-            ImageView publicationSource, accountImage;
+            TextView coment, ubication,username, usernameComment,likes,disklike;
+            ImageView publicationSource, accountImage,accountImageComment;
             ImageButton likeButton, dislikeButton;
             int likeC = 0, dislikeC = 0;
             public PublicationDetalleViewHolder(@NonNull View itemView) {
                 super(itemView);
-//                coment = itemView.findViewById(R.id.textView_coment);
+                coment = itemView.findViewById(R.id.textViewComentario);
                 ubication = itemView.findViewById(R.id.ubicationTextView);
+                usernameComment = itemView.findViewById(R.id.userNametextView2);
                 username = itemView.findViewById(R.id.userNametextView);
                 likes = itemView.findViewById(R.id.countLikeTextView);
                 disklike = itemView.findViewById(R.id.countDislikeTextView);
                 publicationSource = itemView.findViewById(R.id.publicationImageView);
                 accountImage = itemView.findViewById(R.id.userNamePublicationImageView);
+                accountImageComment = itemView.findViewById(R.id.userNamePublicationImageView2);
                 dislikeButton = itemView.findViewById(R.id.buttonDislikeImageButton);
                 likeButton = itemView.findViewById(R.id.buttonLikeImageButton);
             }
