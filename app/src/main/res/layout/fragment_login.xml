@@ -31,7 +31,7 @@
             android:inputType="text"
             android:importantForAutofill="no"
             android:layout_margin="10dp"
-            android:text="admin"
+            android:textColorHint="@color/colorAccent"
             android:textColor="#ffffff"/>
         <EditText
             android:id="@+id/editTextPassword"
@@ -40,8 +40,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_margin="10dp"
+            android:textColorHint="@color/colorAccent"
             android:importantForAutofill="no"
-            android:text="admin"
             android:textColor="#ffffff"/>
 
         <Button
@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/iniciar_sesion"
+            android:background="@color/colorAccent"
             android:layout_margin="20dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -56,13 +57,16 @@
             android:id="@+id/textViewPreguntaRegistro"
             android:text="@string/no_tienes_cuenta_de_socialapp"
             android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#ffffff"
-            android:layout_margin="20dp"/>
+            android:layout_marginStart="20dp" />
         <Button
             android:id="@+id/buttonIniciarRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registarse"
+            android:background="@color/colorAccent"
             android:layout_margin="20dp"/>
 
     </LinearLayout>

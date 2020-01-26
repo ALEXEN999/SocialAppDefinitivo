@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer;
     NavController navController;
-    boolean n = false;
+    boolean n = true;
     private AppBarConfiguration appBarConfiguration;
 
     @Override
@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         socialAppViewModel = ViewModelProviders.of(this).get(SocialAppViewModel.class);
+
+
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -105,8 +107,26 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_login:
                     case R.id.navigation_Register:
                     case R.id.navigation_User:
+                        n = true;
                         toolbar.setVisibility(View.GONE);
                         bottomNavigationView.setVisibility(View.GONE);
+                        break;
+                    case R.id.navigation_accountT:
+                        if (n){
+                            new StyleableToast
+                                    .Builder(getApplicationContext())
+                                    .text("Primero tienes que crear tu publicación en el Home")
+                                    .textColor(Color.WHITE)
+                                    .textBold()
+                                    .cornerRadius(15)
+                                    .iconStart(R.drawable.jesus)
+                                    .backgroundColor(0xFF66BB6A)
+                                    .show();
+                            n = false;
+                        }
+                        drawer.setVisibility(View.VISIBLE);
+                        toolbar.setVisibility(View.VISIBLE);
+                        bottomNavigationView.setVisibility(View.VISIBLE);
                         break;
                     default:
                         drawer.setVisibility(View.VISIBLE);

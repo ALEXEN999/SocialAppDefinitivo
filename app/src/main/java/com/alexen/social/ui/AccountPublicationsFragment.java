@@ -2,6 +2,7 @@ package com.alexen.social.ui;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,6 +24,7 @@ import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.alexen.social.manage.Entity.Publication;
 import com.bumptech.glide.Glide;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import java.util.List;
 

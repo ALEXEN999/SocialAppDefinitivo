@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/register"
             android:textSize="36sp"
+            android:textColor="@color/colorAccent"
             android:gravity="center"
             android:layout_margin="16dp"/>
 
@@ -28,11 +29,13 @@
             android:layout_height="wrap_content"
             android:hint="@string/username"
             android:inputType="text"
+            android:textColorHint="@color/colorAccent"
             android:importantForAutofill="no"
             android:layout_margin="10dp"/>
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
+            android:textColorHint="@color/colorAccent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
             android:inputType="text"
@@ -42,6 +45,7 @@
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
+            android:textColorHint="@color/colorAccent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -53,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registarse"
+            android:background="@color/colorAccent"
             android:layout_margin="20dp"/>
 
     </LinearLayout>
