@@ -3,6 +3,7 @@ package com.alexen.social.ui;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer;
     NavController navController;
-
+    boolean n = false;
     private AppBarConfiguration appBarConfiguration;
 
     @Override
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 
 }

@@ -11,17 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#66BB6A"
-            android:gravity="center"
-            android:text="@string/username"
-            android:textColor="#D5FFFFFF"
-            android:textSize="36sp"
-            tools:ignore="MissingConstraints" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">

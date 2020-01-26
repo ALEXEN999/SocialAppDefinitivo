@@ -4,7 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notificaciones</string>
-    <string name="username">username</string>
+    <string name="username">Username</string>
     <string name="password">password</string>
     <string name="login">Login</string>
     <string name="iniciar_sesion">Iniciar Sesion</string>
@@ -39,7 +39,7 @@
     <string name="buttondislike">ButtonDislike</string>
     <string name="editarperfil">Editar Perfil</string>
     <string name="description">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum, venenatis habitasse sollicitudin magnis donec faucibus porttitor potenti eu, magna luctus aenean urna varius scelerisque a.</string>
-    <string name="descripcion">descripcion</string>
+    <string name="descripcion">Descripcion</string>
     <string name="guardar_cambios">Guardar Cambios</string>
     <string name="image_account">image Account</string>
     <string name="_0h">0h</string>
@@ -49,8 +49,13 @@
     <string name="location">location</string>
     <string name="vacio" />
     <string name="escribe_tu_comentario">Escribe tu comentario...</string>
+    <string name="escribe_tu_mensaje">Escribe tu mensaje...</string>
     <string name="escribe_tu_ubicacion">escribe una ubicación</string>
     <string name="jesus">jesus</string>
     <string name="esta_publicacion_se_merece_un_10">Esta publicación se merece un 10.</string>
+    <string name="holaaa">Holaaa</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="sincronizar_contactos">Sincronizar Contactos</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
 
 </resources>

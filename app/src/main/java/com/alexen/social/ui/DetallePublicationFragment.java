@@ -56,6 +56,7 @@ public class DetallePublicationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
+        accountImageComment = view.findViewById(R.id.userNamePublicationImageView2);
         coment = view.findViewById(R.id.textViewComentario);
         ubication = view.findViewById(R.id.ubicationTextView);
         username = view.findViewById(R.id.userNametextView);
@@ -84,6 +85,8 @@ public class DetallePublicationFragment extends Fragment {
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
                 coment.setText(String.valueOf(publication.coment));
+                Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(accountImageComment);
+                usernameComment.setText(socialAppViewModel.usernametmp);
 
                 likeButton.setOnClickListener(new View.OnClickListener() {
                     @Override

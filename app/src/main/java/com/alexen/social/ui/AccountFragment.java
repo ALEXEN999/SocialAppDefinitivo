@@ -46,7 +46,6 @@ public class AccountFragment extends Fragment {
         socialAppViewModel = ViewModelProviders.of(requireActivity()).get(SocialAppViewModel.class);
 
         imageView = view.findViewById(R.id.imageViewAccountPhoto);
-        username = view.findViewById(R.id.textViewUsername);
 
         socialAppViewModel.usuarioLogeado.observe(getViewLifecycleOwner(), new Observer<User>() {
             @Override
@@ -74,7 +73,6 @@ public class AccountFragment extends Fragment {
     }
 
     private void mostrarPerfil(User user) {
-        username.setText(String.valueOf(user.username));
         socialAppViewModel.imgAccount = user.urlFoto;
         Glide.with(requireActivity()).load(Uri.parse(user.urlFoto)).into(imageView);
 

@@ -42,21 +42,16 @@ public class SocialAppViewModel extends AndroidViewModel {
         LOGIN_COMPLETADO
     }
 
-    public enum EstadoDelGetUsuario {
-        INITIAL,
-        NOEXISTE,
-        ENCONTRADO
-    }
+
     public String email;
     public String username;
     public String password;
 
-
+    public String msg;
     public String usernametmp;
-    public String descriptiontmp;
+    public String descriptiontmp = "Lorem ipsum dolor sit amet consectetur adipiscing elit, hac dictumst etiam magna sem nibh vestibulum, laoreet tempus natoque cursus bibendum rhoncus. ";
     public String imgAccount;
     public MutableLiveData<User> usuarioLogeado = new MutableLiveData<>();
-    public MutableLiveData<User> usuarioRecicler= new MutableLiveData<>();
 
     public MutableLiveData<EstadoDelPost> estadoDelPost = new MutableLiveData<>();
 
@@ -65,7 +60,6 @@ public class SocialAppViewModel extends AndroidViewModel {
 
     public MutableLiveData<List<Publication>> listaPublications = new MutableLiveData<>();
     public MutableLiveData<Publication> publicationSeleccionado = new MutableLiveData<>();
-    public MutableLiveData<EstadoDelGetUsuario> estadoGetUsuario = new MutableLiveData<>();
 
 
     public SocialAppViewModel(@NonNull Application application) {
@@ -90,39 +84,6 @@ public class SocialAppViewModel extends AndroidViewModel {
         }
     });
     }
-
-//    public void rellenarListaPublication(final String usernameAccount, final String comentario, final String urlPublication, final String urlAccount, final String ubication){
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//            boolean publicationExiste = false;
-//                List<Publication> publications = new ArrayList<>();
-//                for (int i = 0; i < 2; i++) {
-//                    Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
-//
-//                    publications.add(publication1);
-//                    socialAppDao.insertarPost(publication1);
-//                }
-//
-////                for (int i = 0; i < 5; i++) {
-////                    if (!publicationExiste){
-////                        publicationExiste = true;
-////                        Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
-////
-////                    }else if (publicationExiste){
-////                        Publication publication1 = new Publication(comentario,ubication,urlPublication,urlAccount,usernameAccount);
-////
-////                    }
-////                }
-//
-//
-////);
-//
-//                listaPublications.postValue(publications);
-//            }
-//        });
-//
-//    }
 
     public void establecerPublicacionSeleccionado(Publication publication){
         publicationSeleccionado.setValue(publication);
@@ -165,5 +126,9 @@ public class SocialAppViewModel extends AndroidViewModel {
                 }
             }
         });
+    }
+    public void cerrarSesion() {
+        usuarioLogeado = null;
+        estadoDelLogin.setValue(EstadoDelLogin.CREDENCIALES_NO_VALIDAS);
     }
 }

@@ -1,16 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <Button
+        android:id="@+id/chatJesus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/vacio"
+        android:background="#00FFFFFF"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imageViewAccountChat"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
+        android:contentDescription="@string/accountphoto"
+        android:scaleType="centerCrop"
+        android:src="@drawable/jesus"
+        app:civ_border_color="#66BB6A"
+        app:civ_border_color_direction="top_to_bottom"
+        app:civ_border_color_end="@color/cardview_shadow_end_color"
+        app:civ_border_width="2dp"
+        tools:ignore="PrivateResource" />
 
 
-    <TextView
-        android:id="@+id/textView2"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C"
-        android:textSize="72sp" />
-</FrameLayout>
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/textview_tagNameNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jesus"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/textview_textoNotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/holaaa" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_timeNotify"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/_0h"
+        android:textColor="#B0858585"
+        android:gravity="right|center"
+        android:paddingRight="16sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

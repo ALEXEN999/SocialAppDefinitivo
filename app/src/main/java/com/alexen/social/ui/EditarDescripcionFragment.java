@@ -18,6 +18,7 @@ import android.widget.EditText;
 
 import com.alexen.social.R;
 import com.alexen.social.ViewModel.SocialAppViewModel;
+import com.alexen.social.manage.Entity.User;
 
 
 /**
@@ -29,7 +30,7 @@ public class EditarDescripcionFragment extends Fragment {
 
     EditText usernameEditText, descripcionEditText;
     Button guardarCambiosButton;
-
+    User user;
     public EditarDescripcionFragment() {}
 
 
@@ -51,7 +52,9 @@ public class EditarDescripcionFragment extends Fragment {
         guardarCambiosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                socialAppViewModel.editarUser(usernameEditText.getText().toString(),descripcionEditText.getText().toString(), socialAppViewModel.usernametmp,socialAppViewModel.descriptiontmp);
+                socialAppViewModel.usernametmp = usernameEditText.getText().toString();
+                socialAppViewModel.descriptiontmp = descripcionEditText.getText().toString();
+
                 navController.navigate(R.id.navigation_accountT);
             }
         });

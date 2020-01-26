@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/homeFragment"
-            android:icon="@drawable/ic_home_black_24dp"
-            android:title="@string/app_name" />
+            android:id="@+id/notification_option_Fragment"
+            android:icon="@drawable/ic_notifications_black_24dp"
+            android:title="@string/notificaciones" />
         <item
-            android:id="@+id/contactoFragment"
-            android:icon="@drawable/ic_dislike_black_24dp"
-            android:title="@string/app_name" />
+            android:id="@+id/contactoOptionFragment"
+            android:icon="@drawable/ic_contacts_black_24dp"
+            android:title="@string/sincronizar_contactos" />
         <item
-            android:id="@+id/loginFragment"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="@string/app_name" />
+            android:id="@+id/navigation_login"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/cerrar_sesion" />
 
     </group>
-
 
 </menu>

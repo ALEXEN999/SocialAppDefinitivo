@@ -74,8 +74,9 @@ public class AccountDescriptionsFragment extends Fragment {
     }
 
     private void mostrarDatoUser(User user) {
-        username.setText(String.valueOf(user.username));
-        tagname.setText(String.valueOf("@"+user.username));
+        username.setText(String.valueOf(socialAppViewModel.usernametmp));
+        tagname.setText(String.valueOf("@"+socialAppViewModel.usernametmp));
+        description.setText(socialAppViewModel.descriptiontmp);
 
     }
 }

@@ -6,27 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.EditarDescripcionFragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="6dp">
 
-        <TextView
-            android:id="@+id/textViewEditarPerfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/editarperfil"
-            android:textSize="36sp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="8dp"/>
-
-        <com.mikhaellopez.circularimageview.CircularImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/imageViewAccountPhoto"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -34,8 +20,7 @@
             android:src="@drawable/ic_account_circle_black_24dp"
             android:contentDescription="@string/accountphoto"
             android:scaleType="centerCrop"
-            app:civ_border_color="@color/colorAccent"
-            android:layout_margin="16dp"/>
+            app:civ_border_color="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/textViewUsernameProfile"
@@ -62,15 +47,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/description"
-            android:inputType="text"
+            android:inputType="textLongMessage"
             tools:ignore="LabelFor"
             tools:targetApi="o" />
 
         <Button
             android:id="@+id/guardarCambiosButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="@string/guardar_cambios" />
+            android:text="@string/guardar_cambios"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:padding="10dp"
+            android:textColor="@color/colorAccent"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

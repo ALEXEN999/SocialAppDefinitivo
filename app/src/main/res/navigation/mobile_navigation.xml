@@ -76,4 +76,9 @@
         android:id="@+id/previewPostFragment"
         android:name="com.alexen.social.ui.PreviewPostFragment"
         tools:layout="@layout/fragment_preview_post" />
+    <fragment
+        android:id="@+id/chatMuestraFragment"
+        android:name="com.alexen.social.ui.ChatMuestraFragment"
+        android:label="jesus"
+        tools:layout="@layout/fragment_chat_muestra" />
 </navigation>

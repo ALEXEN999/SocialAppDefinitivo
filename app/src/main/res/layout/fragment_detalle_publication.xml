@@ -7,265 +7,277 @@
     tools:context=".ui.DetallePublicationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/userNamePublicationImageView"
-                android:layout_width="80dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="@string/accountphoto"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_account_circle_black_24dp"
-                app:civ_border_color="#66BB6A"
-                app:civ_border_color_direction="top_to_bottom"
-                app:civ_border_color_end="@color/cardview_shadow_end_color"
-                tools:ignore="PrivateResource" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="75dp"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
 
-                <TextView
-                    android:id="@+id/userNametextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/usernamePublication"
-                    android:textStyle="bold" />
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/userNamePublicationImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="@string/accountphoto"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+                    app:civ_border_color="#66BB6A"
+                    app:civ_border_color_direction="top_to_bottom"
+                    app:civ_border_color_end="@color/cardview_shadow_end_color"
+                    tools:ignore="PrivateResource" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    tools:ignore="UseCompoundDrawables">
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="15dp"
-                        android:layout_marginTop="3dp"
-                        android:contentDescription="@string/location"
-                        android:src="@drawable/ic_location_on_black_24dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/ubicationTextView"
+                        android:id="@+id/userNametextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:text="@string/ubication"
-                        android:textColor="#929292" />
+                        android:layout_marginTop="12dp"
+                        android:text="@string/usernamePublication"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:contentDescription="@string/location"
+                            android:src="@drawable/ic_location_on_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/ubicationTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="@string/ubication"
+                            android:textColor="#929292" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/publicationImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/imagepublication"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/buttonLikeImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00FEFEFE"
+                    android:contentDescription="@string/buttonlike"
+                    android:src="@drawable/ic_like_black_24dp" />
+
+                <ImageButton
+                    android:id="@+id/buttonDislikeImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00FEFEFE"
+                    android:contentDescription="@string/buttondislike"
+                    android:src="@drawable/ic_dislike_black_24dp" />
+
+                <TextView
+                    android:id="@+id/reactionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/esta_publicacion_tiene" />
+
+                <TextView
+                    android:id="@+id/countLikeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/contador_likes" />
+
+                <TextView
+                    android:id="@+id/titleLikeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/like_title" />
+
+                <TextView
+                    android:id="@+id/countDislikeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/contador_dislike" />
+
+                <TextView
+                    android:id="@+id/titleDisikeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/disike_title" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/userNamePublicationImageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:contentDescription="@string/accountphoto"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+                    app:civ_border_color="#66BB6A"
+                    app:civ_border_color_direction="top_to_bottom"
+                    app:civ_border_color_end="@color/cardview_shadow_end_color"
+                    tools:ignore="PrivateResource" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/userNametextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/usernamePublication"
+                        android:textStyle="bold"
+                        tools:layout_conversion_absoluteHeight="44dp"
+                        tools:layout_conversion_absoluteWidth="0dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="238dp" />
+
+                    <TextView
+                        android:id="@+id/textViewComentario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/escribe_tu_comentario"
+                        tools:layout_conversion_absoluteHeight="0dp"
+                        tools:layout_conversion_absoluteWidth="0dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="283dp" />
                 </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
-
-
-        <com.github.chrisbanes.photoview.PhotoView
-            android:id="@+id/publicationImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/imagepublication"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher_background" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/buttonLikeImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00FEFEFE"
-                android:contentDescription="@string/buttonlike"
-                android:src="@drawable/ic_like_black_24dp" />
-
-            <ImageButton
-                android:id="@+id/buttonDislikeImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00FEFEFE"
-                android:contentDescription="@string/buttondislike"
-                android:src="@drawable/ic_dislike_black_24dp" />
-
-            <TextView
-                android:id="@+id/reactionTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="@string/esta_publicacion_tiene" />
-
-            <TextView
-                android:id="@+id/countLikeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/contador_likes" />
-
-            <TextView
-                android:id="@+id/titleLikeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="@string/like_title" />
-
-            <TextView
-                android:id="@+id/countDislikeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/contador_dislike" />
-
-            <TextView
-                android:id="@+id/titleDisikeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="@string/disike_title" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingEnd="16dp"
-            android:paddingRight="16dp"
-            android:layout_marginBottom="6dp">
-
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/userNamePublicationImageView2"
-                android:layout_width="80dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginRight="6dp"
-                android:contentDescription="@string/accountphoto"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_account_circle_black_24dp"
-                app:civ_border_color="#66BB6A"
-                app:civ_border_color_direction="top_to_bottom"
-                app:civ_border_color_end="@color/cardview_shadow_end_color"
-                tools:ignore="PrivateResource" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp">
 
-                <TextView
-                    android:id="@+id/userNametextView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/usernamePublication"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="44dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="238dp" />
 
-                <TextView
-                    android:id="@+id/textViewComentario"
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/userNamePublicationImageViewJesus"
+                    android:layout_width="80dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:contentDescription="@string/accountphoto"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/jesus"
+                    app:civ_border_color="#66BB6A"
+                    app:civ_border_color_direction="top_to_bottom"
+                    app:civ_border_color_end="@color/cardview_shadow_end_color"
+                    tools:ignore="PrivateResource" />
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/escribe_tu_comentario"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="283dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/userNametextViewJesus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jesus"
+                        android:textStyle="bold"
+                        tools:layout_conversion_absoluteHeight="44dp"
+                        tools:layout_conversion_absoluteWidth="0dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="238dp" />
+
+                    <TextView
+                        android:id="@+id/textViewComentario1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/esta_publicacion_se_merece_un_10"
+                        tools:layout_conversion_absoluteHeight="0dp"
+                        tools:layout_conversion_absoluteWidth="0dp"
+                        tools:layout_editor_absoluteX="70dp"
+                        tools:layout_editor_absoluteY="283dp" />
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:backgroundTint="@color/colorAccent"
+                android:background="?android:attr/listDivider" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingEnd="16dp"
-            android:paddingRight="16dp"
-            android:layout_marginBottom="6dp">
-
-
-        <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/userNamePublicationImageViewJesus"
-                android:layout_width="80dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginRight="6dp"
-                android:contentDescription="@string/accountphoto"
-                android:scaleType="centerInside"
-                android:src="@drawable/jesus"
-                app:civ_border_color="#66BB6A"
-                app:civ_border_color_direction="top_to_bottom"
-                app:civ_border_color_end="@color/cardview_shadow_end_color"
-                tools:ignore="PrivateResource" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/userNametextViewJesus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jesus"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="44dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="238dp" />
-
-                <TextView
-                    android:id="@+id/textViewComentario1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/esta_publicacion_se_merece_un_10"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp"
-                    tools:layout_editor_absoluteX="70dp"
-                    tools:layout_editor_absoluteY="283dp" />
-            </LinearLayout>
 
         </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
