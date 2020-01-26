@@ -81,7 +81,7 @@ public class DetallePublicationFragment extends Fragment {
                 Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(accountImage);
                 username.setText(socialAppViewModel.usernametmp);
                 ubication.setText(publication.ubication);
-                Glide.with(requireActivity()).load(R.drawable.image).into(publicationSource);
+                Glide.with(requireActivity()).load(R.drawable.biblia).into(publicationSource);
                 likes.setText(String.valueOf(publication.likes));
                 disklike.setText(String.valueOf(publication.dislike));
                 coment.setText(String.valueOf(publication.coment));

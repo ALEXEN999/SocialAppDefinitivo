@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment {
             Glide.with(requireActivity()).load(socialAppViewModel.imgAccount).into(holder.accountImage);
             holder.username.setText(socialAppViewModel.usernametmp);
             holder.ubication.setText(publication.ubication);
-            Glide.with(requireActivity()).load(R.drawable.image).into(holder.publicationSource);
+            Glide.with(requireActivity()).load(R.drawable.biblia).into(holder.publicationSource);
             holder.likes.setText(String.valueOf(publication.likes));
             holder.disklike.setText(String.valueOf(publication.dislike));
             holder.coment.setText(String.valueOf(publication.coment));

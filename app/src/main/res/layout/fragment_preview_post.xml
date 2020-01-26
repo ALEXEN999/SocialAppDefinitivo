@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.PreviewPostFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageViewInsertPublication"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/image" />
-        <EditText
-            android:id="@+id/editTextInsertUbicacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textShortMessage"
-            android:text="@string/vacio"
-            android:hint="@string/escribe_tu_ubicacion"/>
-        <EditText
-            android:id="@+id/editTextInsertComentario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textLongMessage"
-            android:text="@string/vacio"
-            android:hint="@string/escribe_tu_comentario"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp">
+
+            <ImageView
+                android:id="@+id/imageViewInsertPublication"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/biblia" />
+
+            <EditText
+                android:id="@+id/editTextInsertUbicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/escribe_tu_ubicacion"
+                android:inputType="textShortMessage"
+                android:text="@string/vacio" />
+
+            <EditText
+                android:id="@+id/editTextInsertComentario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/escribe_tu_comentario"
+                android:inputType="textLongMessage"
+                android:text="@string/vacio" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

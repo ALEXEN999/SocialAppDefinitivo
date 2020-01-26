@@ -81,7 +81,7 @@ public class AccountPublicationsFragment extends Fragment {
 
 
             // GLIDE
-            Glide.with(requireActivity()).load(R.drawable.image).into(holder.fotoImageView);
+            Glide.with(requireActivity()).load(R.drawable.biblia).into(holder.fotoImageView);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -98,7 +98,7 @@ public class AccountPublicationsFragment extends Fragment {
                 public boolean onLongClick(View v) {
                     new AlertDialog.Builder(requireContext()).setTitle("\t\tPreview Post")
                             .setMessage("\tNo sabia muy bien como hacer esto, pero esto sería la preview de la foto, como la que hay a la izquierda.      ")
-                            .setIcon(R.drawable.image)
+                            .setIcon(R.drawable.biblia)
                             .setCancelable(true)
                             .create()
                             .show();
